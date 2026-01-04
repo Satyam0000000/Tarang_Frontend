@@ -22,14 +22,14 @@ const Header = ({ user, setUser }) => {
     else navigate("/register");
   };
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0a0518]/95 backdrop-blur-md text-white border-b border-[#1e1730] shadow-lg">
-      <div className="flex justify-between items-center px-4 md:px-8 py-4">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#0a0518]/95 backdrop-blur-md text-white border-b border-[#1e1730] shadow-md">
+      <div className="flex justify-between items-center px-3 md:px-8 py-2 md:py-4">
         {/* Logo */}
         <Link to="/" className="flex items-center">
         <img
           src={logo}  
           alt="Tarang Logo"
-          className="h-15 w-auto" 
+          className="h-8 md:h-12 w-auto" 
     />
         </Link>
 
@@ -101,7 +101,7 @@ const Header = ({ user, setUser }) => {
           className="md:hidden text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
       {/* Mobile Navigation */}
@@ -112,9 +112,9 @@ const Header = ({ user, setUser }) => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#0a0518]/95 border-t border-[#1e1730]"
+            className="md:hidden bg-[#0a0518]/95 border-t border-[#1e1730] text-sm"
           >
-            <div className="flex flex-col px-6 py-4 space-y-4">
+            <div className="flex flex-col px-5 py-3 space-y-3">
               <button
                 onClick={() => {
                   handleParticipate();

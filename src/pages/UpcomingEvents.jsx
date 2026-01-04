@@ -41,7 +41,7 @@ function UpcomingEvents() {
         Upcoming Events
       </h3>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {eventsData.map((event) => (
           <motion.div
             key={event.id}
@@ -52,7 +52,7 @@ function UpcomingEvents() {
             className="
             bg-[#1b1b38]/40 backdrop-blur-xl 
             border border-gray-600/20 
-            rounded-2xl shadow-md 
+            rounded-3xl shadow-md 
             hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]
             transition-all cursor-pointer
             p-0
@@ -60,27 +60,26 @@ function UpcomingEvents() {
             text-sm
           "
           >
-            <div className="h-40 w-full bg-[#27274a]/40 rounded-t-2xl"></div>
+            <div className="h-28 sm:h-40 w-full bg-[#27274a]/40 rounded-t-3xl"></div>
 
-            <div className="p-4 sm:p-6">
+            <div className="p-5 sm:p-6">
               <h2 className="text-xl font-semibold text-gray-200 mb-2">
                 {event.title}
               </h2>
 
-              <p className="text-gray-400 text-sm mb-1">📅 Date: {event.date}</p>
-              <p className="text-gray-400 text-sm mb-1">⏳ Last Date: {event.lastDate || "Not Provided"}</p>
-              <p className="text-gray-400 text-sm mb-3">🏆 Prize: {event.prize || "To be announced"}</p>
-              <p className="text-gray-400 text-sm mb-3">💰 Entry Fee: {event.entryFee}</p>
+              <p className="text-gray-400 text-sm mb-1 leading-relaxed">📅 {event.date}</p>
+              <p className="text-gray-400 text-sm mb-3 leading-relaxed">💰 {event.entryFee}</p>
 
               {expandedId === event.id && (
-                <div className="text-gray-300 text-sm mb-3">
+                <div className="text-gray-300 text-sm mt-3 space-y-2">
                   <p className="leading-relaxed">{event.description}</p>
-
+                  <p>⏳ Last Date: {event.lastDate || "Not Provided"}</p>
+                  <p>🏆 Prize: {event.prize || "To be announced"}</p>
                   {event.youtube && (
-                    <a 
+                    <a
                       href={event.youtube}
                       target="_blank"
-                      className="text-purple-300 underline block mt-2"
+                      className="text-purple-300 underline block"
                     >
                       ▶ Watch Promo Video
                     </a>
@@ -88,7 +87,7 @@ function UpcomingEvents() {
                 </div>
               )}
 
-              <div className="flex justify-between items-center mt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center mt-5">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
