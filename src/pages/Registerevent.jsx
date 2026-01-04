@@ -7,8 +7,7 @@ function RegisterEvent() {
   const navigate = useNavigate();
   const eventAmount = location.state?.amount || null;
 
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     fullName: "",
     collegeName: "",
     phone: "",
@@ -16,7 +15,9 @@ function RegisterEvent() {
     degree: "",
     year: "",
     heardFrom: "",
-  });
+  };
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState(initialFormState);
 
   const degreeYears = {
     BTech: ["1st Year", "2nd Year", "3rd Year", "4th Year"],
@@ -38,6 +39,7 @@ function RegisterEvent() {
       } else {
         await axios.post("https://tarang-backend-alpha.vercel.app/api/registerEvent", formData);
         //alert("Registration Successful (Free Event)!");
+        setFormData(initialFormState); // clear form
         setLoading(false);
       }
     } catch (error) {
