@@ -18,7 +18,12 @@ const Login = ({ setUser }) => {
     setError("");
 
     try {
-      const res = await axios.post("https://tarang-backend-alpha.vercel.app/api/login", formData); //for vercel
+      const res = await axios.post("https://tarang-backend-alpha.vercel.app/api/login", formData,{
+        headers: {
+          "Content-Type": "application/json"
+        },
+        withCredentials : true,
+      }); //for vercel
       //const res = await axios.post("http://localhost:8000/login", formData); //for local
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
@@ -29,7 +34,8 @@ const Login = ({ setUser }) => {
         setError(res.data.message);
       }
     } catch (err) {
-      setError("Invalid credentials or server error",err);
+      console.error("LOGIN Error (frontend)",err)
+      setError(err.response?.data?.message||"Invalid credentials or server error",err);
     }
   };
 
