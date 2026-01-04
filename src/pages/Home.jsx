@@ -98,7 +98,7 @@ const Home = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="text-2xl sm:text-4xl md:text-5xl font-bold leading-snug mb-4 ml-1"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug mb-4 ml-1"
           >
             यत्र बुद्धिः प्रवहति। <span className="text-purple-400">तरंगः</span>
           </motion.h2>
@@ -107,7 +107,7 @@ const Home = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.1 }}
-            className="text-gray-300 text-sm sm:text-base md:text-lg max-w-sm mb-8 ml-1"
+            className="text-gray-300 text-base sm:text-base md:text-lg max-w-sm mb-8 ml-1"
           >
             Where discussion awakens intelligence.
           </motion.p>
