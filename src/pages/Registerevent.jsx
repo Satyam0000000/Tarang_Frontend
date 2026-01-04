@@ -1,0 +1,160 @@
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+function RegisterEvent() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const eventAmount = location.state?.amount || null;
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    collegeName: "",
+    phone: "",
+    email: "",
+    degree: "",
+    year: "",
+    heardFrom: "",
+  });
+
+  const degreeYears = {
+    BTech: ["1st Year", "2nd Year", "3rd Year", "4th Year"],
+    MTech: ["1st Year", "2nd Year"],
+    PhD: ["PhD"],
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (eventAmount) {
+        navigate("/payment", { state: { amount: eventAmount, userData: formData } });
+      } else {
+        await axios.post("http://localhost:8000/api/registerevent", formData);
+        alert("Registration Successful (Free Event)!");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Registration Failed!");
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e] text-white flex justify-center pt-32 pb-20 px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-[#1b1b38]/40 backdrop-blur-xl border border-gray-600/20 rounded-2xl p-8 w-full max-w-lg shadow-lg"
+      >
+        <h2 className="text-3xl font-semibold text-purple-300 mb-6 text-center">
+          Event Registration
+        </h2>
+
+        <label className="block mb-3 text-gray-300">Full Name</label>
+        <input
+          type="text"
+          name="fullName"
+          required
+          value={formData.fullName}
+          onChange={handleChange}
+          className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+        />
+
+        <label className="block mb-3 text-gray-300">College Name</label>
+        <input
+          type="text"
+          name="collegeName"
+          required
+          value={formData.collegeName}
+          onChange={handleChange}
+          className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+        />
+
+        <label className="block mb-3 text-gray-300">Phone Number</label>
+        <input
+          type="text"
+          inputMode="numeric"
+          name="phone"
+          required
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+          pattern="[0-9]*"
+        />
+
+        <label className="block mb-3 text-gray-300">Email</label>
+        <input
+          type="email"
+          name="email"
+          required
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+        />
+
+        <label className="block mb-3 text-gray-300">Degree</label>
+        <select
+          name="degree"
+          required
+          value={formData.degree}
+          onChange={(e) => {
+            setFormData({
+              ...formData,
+              degree: e.target.value,
+              year: "",
+            });
+          }}
+          className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+        >
+          <option value="">Select Degree</option>
+          <option value="BTech">B.Tech</option>
+          <option value="MTech">M.Tech</option>
+          <option value="PhD">Ph.D</option>
+        </select>
+
+        <label className="block mb-3 text-gray-300">Year</label>
+        <select
+          name="year"
+          required
+          disabled={!formData.degree}
+          value={formData.year}
+          onChange={handleChange}
+          className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none disabled:opacity-40"
+        >
+          <option value="">Select Year</option>
+          {formData.degree &&
+            degreeYears[formData.degree].map((yr, idx) => (
+              <option key={idx} value={yr}>
+                {yr}
+              </option>
+            ))}
+        </select>
+
+        <label className="block mb-3 text-gray-300">Where did you hear about us?</label>
+        <select
+          name="heardFrom"
+          required
+          value={formData.heardFrom}
+          onChange={handleChange}
+          className="w-full mb-6 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+        >
+          <option value="">Select Option</option>
+          <option value="Friend">Friend</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Website">Website</option>
+        </select>
+
+        <button
+          type="submit"
+          className="w-full mt-4 bg-purple-600 hover:bg-purple-700 transition text-white py-2 rounded-lg text-lg"
+        >
+          Submit Registration
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default RegisterEvent;
