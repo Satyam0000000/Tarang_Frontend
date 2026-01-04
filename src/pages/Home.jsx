@@ -184,7 +184,7 @@ const Home = () => {
     Upcoming Events
   </h3>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
+  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-10 max-w-6xl mx-auto">
     {events.map((event, i) => (
       <motion.div
       key={i}
@@ -197,16 +197,16 @@ const Home = () => {
         border border-gray-600/20 
         rounded-2xl shadow-md 
         hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]
-        transition-all cursor-pointer
+        transition-all cursor-pointer text-sm
       "
       onClick={() => {
         if (isLoggedIn) navigate("/UpcomingEvents");
         else navigate("/register");
       }}
     >
-      <div className="h-40 w-full bg-[#27274a]/40 rounded-t-2xl"></div>
+      <div className="h-28 sm:h-40 w-full bg-[#27274a]/40 rounded-t-2xl"></div>
     
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <p className="text-purple-300 text-sm mb-1">{event.tag}</p>
     
         <h2 className="text-xl font-semibold text-gray-200 mb-2">
@@ -231,7 +231,7 @@ const Home = () => {
     Previous Events
   </h3>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
+  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-10 max-w-6xl mx-auto">
     {previousEvents.map((event, i) => (
       <motion.div
         key={i}
@@ -244,12 +244,12 @@ const Home = () => {
           border border-gray-500/20 
           rounded-2xl shadow-lg 
           hover:shadow-[0_0_40px_rgba(139,92,246,0.5)]
-          transition-all cursor-pointer
+          transition-all cursor-pointer text-sm
         "
       >
-        <div className="h-40 bg-gradient-to-r from-gray-700/40 to-gray-600/30 rounded-t-2xl"></div>
+        <div className="h-28 sm:h-40 bg-gradient-to-r from-gray-700/40 to-gray-600/30 rounded-t-2xl"></div>
 
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <p className="text-purple-300 text-sm mb-1">{event.tag}</p>
 
           <h2 className="text-xl font-semibold mb-2 text-gray-200">
