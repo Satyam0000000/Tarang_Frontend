@@ -71,7 +71,7 @@ const Home = () => {
   opacity-10 select-none pointer-events-none"
   
   animate={{
-    x: ["5%", "12%", "-3%"],
+    x: ["6%", "12%", "-4%"],
     y: ["-2%", "2%", "-2%"],
   }}
   transition={{
