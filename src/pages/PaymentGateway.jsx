@@ -20,7 +20,7 @@ function PaymentGateway() {
     setMessage("");
 
     try {
-      const response = await axios.post("http://localhost:8000/create-upi-payment", {
+      const response = await axios.post("https://tarang-backend-alpha.vercel.app/create-upi-payment", {
         upiId,
         amount,
         userData,

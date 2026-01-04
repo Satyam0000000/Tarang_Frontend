@@ -18,7 +18,7 @@ const Login = ({ setUser }) => {
     setError("");
 
     try {
-      const res = await axios.post("Backend_URL/api/login", formData); //for vercel
+      const res = await axios.post("https://tarang-backend-alpha.vercel.app/api/login", formData); //for vercel
       //const res = await axios.post("http://localhost:8000/login", formData); //for local
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);

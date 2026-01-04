@@ -33,7 +33,7 @@ function RegisterEvent() {
       if (eventAmount) {
         navigate("/payment", { state: { amount: eventAmount, userData: formData } });
       } else {
-        await axios.post("http://localhost:8000/api/registerevent", formData);
+        await axios.post("https://tarang-backend-alpha.vercel.app/api/registerevent", formData);
         alert("Registration Successful (Free Event)!");
       }
     } catch (error) {
