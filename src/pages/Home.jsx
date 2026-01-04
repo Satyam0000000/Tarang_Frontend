@@ -68,7 +68,7 @@ const Home = () => {
   text-[5rem] sm:text-[10rem] md:text-[15rem]
   font-extrabold text-transparent bg-clip-text 
   bg-gradient-to-r from-purple-500 to-blue-500 
-  opacity-10 select-none pointer-events-none"
+  opacity-20 select-none pointer-events-none"
   
   animate={{
     x: ["6%", "12%", "-4%"],
