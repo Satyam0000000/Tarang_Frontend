@@ -7,6 +7,7 @@ function RegisterEvent() {
   const navigate = useNavigate();
   const eventAmount = location.state?.amount || null;
 
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     collegeName: "",
@@ -29,14 +30,18 @@ function RegisterEvent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       if (eventAmount) {
         navigate("/payment", { state: { amount: eventAmount, userData: formData } });
+        setLoading(false);
       } else {
         await axios.post("https://tarang-backend-alpha.vercel.app/api/registerEvent", formData);
-        alert("Registration Successful (Free Event)!");
+        //alert("Registration Successful (Free Event)!");
+        setLoading(false);
       }
     } catch (error) {
+      setLoading(false);
       console.error(error);
       alert("Registration Failed!");
     }
@@ -148,9 +153,20 @@ function RegisterEvent() {
 
         <button
           type="submit"
-          className="w-full mt-4 bg-purple-600 hover:bg-purple-700 transition text-white py-2 rounded-lg text-lg"
+          disabled={loading}
+          className={`
+            w-full mt-4 py-2 rounded-lg text-lg font-semibold
+            bg-gradient-to-r from-purple-500 to-blue-500
+            shadow-[0_0_20px_rgba(139,92,246,0.4)]
+            transition-all flex items-center justify-center
+            ${loading ? "opacity-70 cursor-not-allowed" : "hover:scale-[1.02]"}
+          `}
         >
-          Submit Registration
+          {loading ? (
+            <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+          ) : (
+            "Submit Registration"
+          )}
         </button>
       </form>
     </div>

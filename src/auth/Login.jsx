@@ -8,6 +8,7 @@ const Login = ({ setUser }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,6 +17,7 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
       const res = await axios.post("https://tarang-backend-alpha.vercel.app/api/login", formData,{
@@ -29,11 +31,14 @@ const Login = ({ setUser }) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setUser(res.data.user);
+        setLoading(false);
         navigate("/");
       } else {
         setError(res.data.message);
+        setLoading(false);
       }
     } catch (err) {
+      setLoading(false);
       console.error("LOGIN Error (frontend)",err)
       setError(err.response?.data?.message||"Invalid credentials or server error",err);
     }
@@ -111,17 +116,23 @@ const Login = ({ setUser }) => {
 
           {/* Login button */}
           <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={!loading ? { scale: 1.03 } : {}}
+            whileTap={!loading ? { scale: 0.95 } : {}}
             type="submit"
-            className="
+            disabled={loading}
+            className={`
               w-full py-3 rounded-xl font-semibold
               bg-gradient-to-r from-purple-500 to-blue-500
               shadow-[0_0_20px_rgba(139,92,246,0.4)]
-              transition-all
-            "
+              transition-all flex items-center justify-center
+              ${loading ? "opacity-70 cursor-not-allowed" : ""}
+            `}
           >
-            Login
+            {loading ? (
+              <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+            ) : (
+              "Login"
+            )}
           </motion.button>
         </form>
 

@@ -27,7 +27,7 @@ function Registration() {
     try {
       const res = await axios.post("https://tarang-backend-alpha.vercel.app/api/register", formData);
      // const res = await axios.post("http://localhost:8000/register", formData); //for loacalhost
-      alert(res.data.message);
+     // alert(res.data.message);
       setLoading(false);
       navigate("/login");
     } catch (err) {
