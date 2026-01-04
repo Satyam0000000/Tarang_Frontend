@@ -26,8 +26,8 @@ const Footer = () => {
             Quick Links
           </h2>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/events" className="hover:text-violet-400 transition">Events</Link></li>
-            <li><Link to="/partners" className="hover:text-violet-400 transition">Partners</Link></li>
+            <li><Link to="/UpcomingEvents" className="hover:text-violet-400 transition">Events</Link></li>
+            <li><Link to="/collaboration" className="hover:text-violet-400 transition">Partners</Link></li>
             <li><Link to="/rewards" className="hover:text-violet-400 transition">Rewards</Link></li>
             <li><Link to="/about" className="hover:text-violet-400 transition">About</Link></li>
             <li><Link to="/contact" className="hover:text-violet-400 transition">Contact</Link></li>

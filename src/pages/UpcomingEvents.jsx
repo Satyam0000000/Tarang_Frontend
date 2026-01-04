@@ -41,7 +41,7 @@ function UpcomingEvents() {
         Upcoming Events
       </h3>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-10 max-w-6xl mx-auto">
         {eventsData.map((event) => (
           <motion.div
             key={event.id}
@@ -57,11 +57,12 @@ function UpcomingEvents() {
             transition-all cursor-pointer
             p-0
             self-start
+            text-sm
           "
           >
             <div className="h-40 w-full bg-[#27274a]/40 rounded-t-2xl"></div>
 
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               <h2 className="text-xl font-semibold text-gray-200 mb-2">
                 {event.title}
               </h2>
