@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Header = ({ user, setUser }) => {
   const navigate = useNavigate();
   const [eventOpen, setEventOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const handleLogout = () => {
     localStorage.clear();
     setUser(null);
@@ -22,7 +23,7 @@ const Header = ({ user, setUser }) => {
   };
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#0a0518]/95 backdrop-blur-md text-white border-b border-[#1e1730] shadow-lg">
-      <div className="flex justify-between items-center px-8 py-4">
+      <div className="flex justify-between items-center px-4 md:px-8 py-4">
         {/* Logo */}
         <Link to="/" className="flex items-center">
         <img
@@ -33,7 +34,7 @@ const Header = ({ user, setUser }) => {
         </Link>
 
         {/* Nav Links */}
-        <nav className="flex items-center space-x-8 font-medium">
+        <nav className="hidden md:flex items-center space-x-8 font-medium">
           {/* Event Dropdown */}
           <div
             className="relative"
@@ -95,7 +96,108 @@ const Header = ({ user, setUser }) => {
           </>
         )}
         </nav>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-[#0a0518]/95 border-t border-[#1e1730]"
+          >
+            <div className="flex flex-col px-6 py-4 space-y-4">
+              <button
+                onClick={() => {
+                  handleParticipate();
+                  setMobileOpen(false);
+                }}
+                className="text-left hover:text-purple-400"
+              >
+                Upcoming Event
+              </button>
+
+              <Link
+                to="/previous-events"
+                onClick={() => setMobileOpen(false)}
+                className="hover:text-purple-400"
+              >
+                Previous Events
+              </Link>
+
+              <Link
+                to="/collaboration"
+                onClick={() => setMobileOpen(false)}
+                className="hover:text-purple-400"
+              >
+                Partner
+              </Link>
+
+              <Link
+                to="/rewards"
+                onClick={() => setMobileOpen(false)}
+                className="hover:text-purple-400"
+              >
+                Rewards
+              </Link>
+
+              <Link
+                to="/about"
+                onClick={() => setMobileOpen(false)}
+                className="hover:text-purple-400"
+              >
+                About
+              </Link>
+
+              {user ? (
+                <>
+                  <Link
+                    to="/profile"
+                    onClick={() => setMobileOpen(false)}
+                    className="hover:text-purple-400"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setMobileOpen(false);
+                    }}
+                    className="text-left text-red-400"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="bg-purple-600 px-4 py-2 rounded-lg text-center"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    onClick={() => setMobileOpen(false)}
+                    className="bg-purple-600 px-4 py-2 rounded-lg text-center"
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
