@@ -15,7 +15,7 @@ import UpcomingEvents from "./pages/UpcomingEvents";
 import PaymentGateway from "./pages/PaymentGateway";
 import Collaboration from "./pages/Collaboration";
 import RewardedFellow from "./pages/RewardedFellow";
-import RegisterEvent from "./pages/registerevent";
+import RegisterEvent from "./pages/Registerevent";
 import NotFound from "./pages/NotFound";
 
 // Auth
