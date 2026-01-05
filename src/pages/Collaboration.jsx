@@ -27,6 +27,9 @@ function Collaboration() {
           <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-purple-500/40">
             <img src={developerPic} alt="Developer" className="w-full h-full object-cover" />
           </div>
+          <p className="text-white font-bold text-base">
+            Satyam Goswami
+          </p>
         </div>
         <p className="text-gray-300 text-sm leading-relaxed space-y-3">
           <span className="block">
