@@ -29,9 +29,12 @@ function Collaboration() {
           </div>
         </div>
         <p className="text-gray-300 text-sm leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non ligula eu lorem 
-          interdum ullamcorper. Etiam pulvinar tellus nec mauris porttitor, nec consequat 
-          velit luctus. Donec ac nisi eget tortor suscipit viverra.
+          I am a B.Tech student from NIT Jalandhar and a full-stack MERN developer.
+      I work on making all types of web applications, AI models, and AI-powered systems integrated
+       with web applications, including workflow-based AI apps similar to n8n.
+      Along with my academic journey, I also take up freelance projects and enjoy collaborating with 
+      individuals and teams.
+     📩 You can contact me at satyamgoswami2705@gmail.com for freelance work, collaborations, or any queries.
         </p>
       </div>
     </div>
