@@ -28,13 +28,30 @@ function Collaboration() {
             <img src={developerPic} alt="Developer" className="w-full h-full object-cover" />
           </div>
         </div>
-        <p className="text-gray-300 text-sm leading-relaxed">
-          I am a B.Tech student from NIT Jalandhar and a full-stack MERN developer.
-      I work on making all types of web applications, AI models, and AI-powered systems integrated
-       with web applications, including workflow-based AI apps similar to n8n.
-      Along with my academic journey, I also take up freelance projects and enjoy collaborating with 
-      individuals and teams.
-     📩 You can contact me at satyamgoswami2705@gmail.com for freelance work, collaborations, or any queries.
+        <p className="text-gray-300 text-sm leading-relaxed space-y-3">
+          <span className="block">
+            I am a B.Tech student from NIT Jalandhar and a full-stack MERN developer.
+          </span>
+
+          <span className="block">
+            I work on making all types of web applications, AI models, and AI-powered systems
+            integrated with web applications, including workflow-based AI apps similar to n8n.
+          </span>
+
+          <span className="block">
+            Along with my academic journey, I also take up freelance projects and enjoy
+            collaborating with individuals and teams.
+          </span>
+
+          <span className="block">
+            📩 You can contact me at{" "}
+            <a
+              href="mailto:satyamgoswami2705@gmail.com"
+              className="text-purple-400 hover:underline"
+            >
+              satyamgoswami2705@gmail.com
+            </a>
+          </span>
         </p>
       </div>
     </div>
