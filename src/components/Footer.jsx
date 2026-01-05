@@ -2,9 +2,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaLinkedin, FaYoutube, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (path) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <footer className="bg-gray-950 text-gray-300 py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10">
@@ -26,11 +35,31 @@ const Footer = () => {
             Quick Links
           </h2>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/UpcomingEvents" className="hover:text-violet-400 transition">Events</Link></li>
-            <li><Link to="/collaboration" className="hover:text-violet-400 transition">Partners</Link></li>
-            <li><Link to="/rewards" className="hover:text-violet-400 transition">Rewards</Link></li>
-            <li><Link to="/about" className="hover:text-violet-400 transition">About</Link></li>
-            <li><Link to="/contact" className="hover:text-violet-400 transition">Contact</Link></li>
+            <li>
+              <button onClick={() => handleNavigate("/UpcomingEvents")} className="hover:text-violet-400 transition text-left">
+                Events
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigate("/collaboration")} className="hover:text-violet-400 transition text-left">
+                Partners
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigate("/rewards")} className="hover:text-violet-400 transition text-left">
+                Rewards
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigate("/about")} className="hover:text-violet-400 transition text-left">
+                About
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNavigate("/contact")} className="hover:text-violet-400 transition text-left">
+                Contact
+              </button>
+            </li>
           </ul>
         </div>
 
