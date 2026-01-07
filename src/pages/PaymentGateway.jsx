@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 function PaymentGateway() {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const passedAmount = location.state?.amount || "";
   const userData = location.state?.userData || null;
@@ -47,13 +46,15 @@ function PaymentGateway() {
       );
 
       // Redirect to Cashfree Checkout
+      if (!res.data.payment_link) {
+        throw new Error("Payment link not received from backend");
+      }
       window.location.href = res.data.payment_link;
     } catch (error) {
       console.error(error);
       setMessage("Payment initiation failed.");
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
