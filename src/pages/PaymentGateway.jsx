@@ -45,11 +45,11 @@ function PaymentGateway() {
         }
       );
 
-      // Redirect to Cashfree Checkout
-      if (!res.data.payment_link) {
-        throw new Error("Payment link not received from backend");
+      // Redirect to Cashfree Checkout using payment_session_id
+      if (!res.data.payment_session_id) {
+        throw new Error("payment_session_id not received from backend");
       }
-      window.location.href = res.data.payment_link;
+      window.location.href = `https://payments.cashfree.com/checkout/${res.data.payment_session_id}`;
     } catch (error) {
       console.error(error);
       setMessage("Payment initiation failed.");
