@@ -10,7 +10,7 @@ function PaymentSuccess() {
 
   useEffect(() => {
     if (!orderId) {
-      setStatus("⚠️ Order ID missing from payment redirect");
+      setStatus(" Order ID missing from payment redirect");
       return;
     }
 
@@ -24,13 +24,13 @@ function PaymentSuccess() {
           res.data.order_status === "PAID" ||
           res.data.order_status === "SUCCESS"
         ) {
-          setStatus("✅ Payment Successful");
+          setStatus(" Payment Successful");
         } else {
           setStatus("⏳ Payment Pending");
         }
       } catch (error) {
         console.error("Verification API failed, trusting Cashfree redirect:", error);
-        setStatus("✅ Payment Successful");
+        setStatus(" Payment Successful");
       }
     };
 
@@ -64,16 +64,16 @@ function PaymentSuccess() {
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/events"
+            href="/UpcomingEvents"
             className="rounded-lg bg-violet-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-violet-700"
           >
             Explore More Events
           </a>
           <a
-            href="/profile"
+            href="/Home"
             className="rounded-lg border border-violet-500/40 px-6 py-2.5 text-sm font-medium text-violet-300 transition hover:bg-violet-500/10"
           >
-            View Profile
+            Home
           </a>
         </div>
 
