@@ -38,12 +38,8 @@ function PaymentSuccess() {
   }, [orderId]);
 
   return (
-    <div className="flex items-center justify-center min-h-[70vh] bg-gradient-to-br from-[#05010d] via-[#0b0620] to-[#12082e] px-4">
-      <div className="relative max-w-lg w-full rounded-2xl border border-violet-500/20 bg-[#0c0720]/90 backdrop-blur-xl shadow-[0_0_60px_rgba(139,92,246,0.15)] p-8 text-center">
-        
-        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-violet-600/20">
-          <span className="text-3xl">✨</span>
-        </div>
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e] text-white px-4 pt-28">
+      <div className="relative max-w-lg w-full rounded-2xl border border-violet-400/15 bg-[#141432]/70 p-8 text-center shadow-md">
 
         <h1 className="text-3xl font-bold tracking-wide text-white">
           {status}
