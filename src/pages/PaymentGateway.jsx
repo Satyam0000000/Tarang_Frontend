@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { load } from "@cashfreepayments/cashfree-js";
 
 function PaymentGateway() {
   const location = useLocation();
@@ -49,7 +50,14 @@ function PaymentGateway() {
       if (!res.data.payment_session_id) {
         throw new Error("payment_session_id not received from backend");
       }
-      window.location.href = `https://payments.cashfree.com/checkout/${res.data.payment_session_id}`;
+      const cashfree = await load({
+        mode: "sandbox", // change to "production" when live
+      });
+
+      await cashfree.checkout({
+        paymentSessionId: res.data.payment_session_id,
+        redirectTarget: "_self",
+      });
     } catch (error) {
       console.error(error);
       setMessage("Payment initiation failed.");
