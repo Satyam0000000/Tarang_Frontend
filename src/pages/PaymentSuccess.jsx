@@ -40,6 +40,7 @@ function PaymentSuccess() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e] text-white px-4 pt-28">
       <div className="relative max-w-lg w-full rounded-2xl border border-violet-400/15 bg-[#141432]/70 p-8 text-center shadow-md">
+        
 
         <h1 className="text-3xl font-bold tracking-wide text-white">
           {status}
