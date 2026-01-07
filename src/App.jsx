@@ -17,6 +17,7 @@ import Collaboration from "./pages/Collaboration";
 import RewardedFellow from "./pages/RewardedFellow";
 import RegisterEvent from "./pages/Registerevent";
 import NotFound from "./pages/NotFound";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 // Auth
 import Login from "./auth/Login";
@@ -50,6 +51,7 @@ function App() {
         <Route path="/rewards" element={<RewardedFellow />} />
         <Route path="/payment" element={<PaymentGateway />} />
         <Route path="/registerevent" element={<RegisterEvent />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
 
         {/* Auth Pages */}
         <Route path="/login" element={<Login setUser={setUser} />} />
