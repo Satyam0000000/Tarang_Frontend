@@ -24,12 +24,21 @@ function PaymentGateway() {
     setMessage("");
 
     try {
+      console.log("Sending to backend:", {
+        amount,
+        customer: {
+          id: userData.customerId,
+          name: userData.name,
+          email: userData.email,
+          phone: userData.phone,
+        },
+      });
       const res = await axios.post(
         "https://tarang-backend-alpha.vercel.app/api/create-order",
         {
           amount,
           customer: {
-            id: userData._id,
+            id: userData.customerId,
             name: userData.name,
             email: userData.email,
             phone: userData.phone,

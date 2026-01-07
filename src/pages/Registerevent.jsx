@@ -15,6 +15,7 @@ function RegisterEvent() {
     degree: "",
     year: "",
     heardFrom: "",
+    customerId: "",
   };
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(initialFormState);
@@ -33,8 +34,24 @@ function RegisterEvent() {
     e.preventDefault();
     setLoading(true);
     try {
+      const generatedCustomerId = `EVT_${Date.now()}`;
+      const paymentUserData = {
+        customerId: generatedCustomerId,
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        collegeName: formData.collegeName,
+        degree: formData.degree,
+        year: formData.year,
+        heardFrom: formData.heardFrom,
+      };
       if (eventAmount) {
-        navigate("/payment", { state: { amount: eventAmount, userData: formData } });
+        navigate("/payment", {
+          state: {
+            amount: eventAmount,
+            userData: paymentUserData,
+          },
+        });
         setLoading(false);
       } else {
         await axios.post("https://tarang-backend-alpha.vercel.app/api/registerEvent", formData);
