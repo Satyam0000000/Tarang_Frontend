@@ -20,10 +20,13 @@ function PaymentSuccess() {
           `https://tarang-backend-alpha.vercel.app/api/verify-payment/${orderId}`
         );
 
-        if (res.data.order_status === "PAID") {
+        if (
+          res.data.order_status === "PAID" ||
+          res.data.order_status === "SUCCESS"
+        ) {
           setStatus("✅ Payment Successful");
         } else {
-          setStatus("❌ Payment Failed or Pending");
+          setStatus("⏳ Payment Pending");
         }
       } catch (error) {
         console.error(error);
