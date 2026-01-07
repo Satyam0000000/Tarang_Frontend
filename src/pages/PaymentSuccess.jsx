@@ -26,7 +26,8 @@ function PaymentSuccess() {
           setStatus("❌ Payment Failed or Pending");
         }
       } catch (error) {
-        setStatus("❌ Verification failed",error);
+        console.error(error);
+        setStatus("❌ Verification failed");
       }
     };
 
@@ -34,7 +35,7 @@ function PaymentSuccess() {
   }, [orderId]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center text-white">
+    <div className="flex items-center justify-center min-h-[60vh] text-black">
       <h1 className="text-2xl">{status}</h1>
     </div>
   );
