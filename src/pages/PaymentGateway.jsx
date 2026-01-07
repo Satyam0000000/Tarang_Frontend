@@ -43,6 +43,22 @@ function PaymentGateway() {
             email: userData.email,
             phone: userData.phone,
           },
+
+          // 🔹 registration + event details (for PendingOrder)
+          registration: {
+            fullName: userData.name,
+            email: userData.email,
+            phone: userData.phone,
+            collegeName: userData.collegeName,
+            degree: userData.degree,
+            year: userData.year,
+            heardFrom: userData.heardFrom,
+          },
+
+          event: {
+            eventId: userData.eventId,
+            eventName: userData.eventName,
+          },
         }
       );
 

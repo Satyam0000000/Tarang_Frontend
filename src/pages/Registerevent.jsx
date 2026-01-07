@@ -6,6 +6,8 @@ function RegisterEvent() {
   const location = useLocation();
   const navigate = useNavigate();
   const eventAmount = location.state?.amount || null;
+  const eventId = location.state?.eventId || null;
+  const eventName = location.state?.eventName || null;
 
   const initialFormState = {
     fullName: "",
@@ -44,6 +46,8 @@ function RegisterEvent() {
         degree: formData.degree,
         year: formData.year,
         heardFrom: formData.heardFrom,
+        eventId,
+        eventName,
       };
       if (eventAmount) {
         navigate("/payment", {
@@ -54,7 +58,16 @@ function RegisterEvent() {
         });
         setLoading(false);
       } else {
-        await axios.post("https://tarang-backend-alpha.vercel.app/api/registerEvent", formData);
+        await axios.post(
+          "https://tarang-backend-alpha.vercel.app/api/registerEvent",
+          {
+            ...formData,
+            eventId,
+            eventName,
+            amount: 0,
+            paymentStatus: "FREE",
+          }
+        );
         //alert("Registration Successful (Free Event)!");
         setFormData(initialFormState); // clear form
         setLoading(false);

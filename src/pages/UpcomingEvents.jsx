@@ -108,7 +108,13 @@ function UpcomingEvents() {
                       amount = event.entryFee.replace("₹", "").trim();
                     }
 
-                    navigate("/registerevent", { state: { amount } });
+                    navigate("/registerevent", {
+                      state: {
+                        amount,
+                        eventId: event.id,
+                        eventName: event.title,
+                      },
+                    });
                   }}
                   className="bg-purple-600 text-white px-4 py-2 rounded-xl text-sm hover:bg-purple-700 transition"
                 >
