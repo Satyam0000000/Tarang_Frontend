@@ -70,7 +70,7 @@ function PaymentSuccess() {
             Explore More Events
           </a>
           <a
-            href="/Home"
+            href="/"
             className="rounded-lg border border-violet-500/40 px-6 py-2.5 text-sm font-medium text-violet-300 transition hover:bg-violet-500/10"
           >
             Home
