@@ -110,7 +110,7 @@ function Profile() {
               bg-gradient-to-r from-purple-400 to-blue-400
             "
           >
-            {user.name}
+            {user.fullName || user.name}
           </h2>
           <p className="text-sm text-gray-300 mt-1">{user.email}</p>
         </motion.div>
