@@ -24,7 +24,9 @@ function PaymentSuccess() {
 
         const { status, paymentId, details } = res.data;
 
-        if (status) setStatus(status);
+        // 🔹 Always update status if backend responds
+        setStatus(status || "PENDING");
+
         if (paymentId) setPaymentId(paymentId);
         if (details) setDetails(details);
 
