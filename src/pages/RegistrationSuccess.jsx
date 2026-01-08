@@ -28,14 +28,14 @@ function RegistrationSuccess() {
   const { fullName, email, eventName, amount } = state;
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-black via-violet-950 to-black px-4">
-      <div className="w-full max-w-md rounded-2xl border border-violet-500/20 bg-black/40 p-8 text-white shadow-xl backdrop-blur">
-        <h1 className="text-3xl font-bold tracking-wide text-white">
-          Registration Successful 🎉
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e] text-white px-4 pt-28">
+      <div className="relative max-w-lg w-full rounded-2xl border border-violet-400/15 bg-[#141432]/70 p-8 shadow-md">
+        <h1 className="text-3xl font-bold tracking-wide text-white text-center">
+          Registration Successful
         </h1>
 
-        <p className="mt-3 text-sm text-violet-200">
-          You have been successfully registered for the event.
+        <p className="mt-4 text-sm text-violet-200 text-center">
+          Your registration has been completed successfully.
         </p>
 
         <div className="mt-6 space-y-4">
@@ -76,19 +76,19 @@ function RegistrationSuccess() {
           </div>
         </div>
 
-        <div className="mt-8 flex gap-4">
+        <div className="mt-8 flex justify-between gap-4">
           <button
             onClick={() => navigate("/")}
-            className="flex-1 rounded-md bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700"
+            className="rounded-lg border border-violet-500/40 px-6 py-2.5 text-sm font-medium text-violet-300 transition hover:bg-violet-500/10"
           >
-            Go to Home
+            Home
           </button>
 
           <button
             onClick={() => navigate("/events")}
-            className="flex-1 rounded-md border border-violet-500/40 px-4 py-2 text-sm font-semibold text-violet-300 hover:bg-violet-500/10"
+            className="rounded-lg bg-violet-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-violet-700"
           >
-            View Events
+            Explore Events
           </button>
         </div>
       </div>
