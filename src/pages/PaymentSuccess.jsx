@@ -6,35 +6,37 @@ function PaymentSuccess() {
   const [params] = useSearchParams();
   const orderId = params.get("order_id");
 
-  const [status, setStatus] = useState("Verifying payment...");
+  const [status, setStatus] = useState("VERIFYING");
+  const [paymentId, setPaymentId] = useState(null);
+  const [details, setDetails] = useState(null);
 
   useEffect(() => {
     if (!orderId) {
-      setStatus(" Order ID missing from payment redirect");
+      setStatus("FAILED");
       return;
     }
 
-    const verifyPayment = async () => {
+    const interval = setInterval(async () => {
       try {
         const res = await axios.get(
           `https://tarang-backend-alpha.vercel.app/api/verify-payment/${orderId}`
         );
 
-        if (
-          res.data.order_status === "PAID" ||
-          res.data.order_status === "SUCCESS"
-        ) {
-          setStatus(" Payment Successful");
-        } else {
-          setStatus("⏳ Payment Pending");
-        }
-      } catch (error) {
-        console.error("Verification API failed, trusting Cashfree redirect:", error);
-        setStatus(" Payment Successful");
-      }
-    };
+        const { status, paymentId, details } = res.data;
 
-    verifyPayment();
+        if (status) setStatus(status);
+        if (paymentId) setPaymentId(paymentId);
+        if (details) setDetails(details);
+
+        if (status === "PAID" || status === "FAILED") {
+          clearInterval(interval);
+        }
+      } catch (err) {
+        console.error("Payment verification error:", err);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
   }, [orderId]);
 
   return (
@@ -43,12 +45,19 @@ function PaymentSuccess() {
         
 
         <h1 className="text-3xl font-bold tracking-wide text-white">
-          {status}
+          {status === "VERIFYING" && "Verifying payment..."}
+          {status === "PAID" && "Payment Successful 🎉"}
+          {status === "PENDING" && "Payment Pending ⏳"}
+          {status === "FAILED" && "Payment Failed ❌"}
         </h1>
 
         <p className="mt-4 text-sm text-violet-200">
-          Thank you for participating in <span className="font-semibold text-violet-400">Tarang</span>.
-          Your enthusiasm and presence make the event truly special.
+          {status === "PAID" &&
+            "Your payment has been confirmed and your registration is complete."}
+          {status === "PENDING" &&
+            "Your payment is being processed. Please wait, this page will update automatically."}
+          {status === "FAILED" &&
+            "Payment failed. If any amount was deducted, it will be refunded automatically."}
         </p>
 
         {orderId && (
@@ -59,6 +68,26 @@ function PaymentSuccess() {
             <p className="mt-1 break-all text-sm font-medium text-white">
               {orderId}
             </p>
+          </div>
+        )}
+
+        {paymentId && (
+          <div className="mt-4 rounded-lg border border-emerald-500/20 bg-black/30 px-4 py-3">
+            <p className="text-xs uppercase tracking-widest text-emerald-300">
+              Payment ID
+            </p>
+            <p className="mt-1 break-all text-sm font-medium text-white">
+              {paymentId}
+            </p>
+          </div>
+        )}
+
+        {details && (
+          <div className="mt-4 rounded-lg border border-violet-500/20 bg-black/30 px-4 py-3 text-left text-sm text-violet-200 space-y-1">
+            <p><span className="font-semibold">Name:</span> {details.name}</p>
+            <p><span className="font-semibold">Email:</span> {details.email}</p>
+            <p><span className="font-semibold">Event:</span> {details.eventName}</p>
+            <p><span className="font-semibold">Amount:</span> ₹{details.amount}</p>
           </div>
         )}
 
