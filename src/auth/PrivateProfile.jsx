@@ -81,7 +81,14 @@ function Profile() {
   }
 
   return (
-    <div className="pt-24 px-4 max-w-5xl mx-auto">
+    <div
+      className="
+        min-h-screen
+        bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e]
+        text-white
+      "
+    >
+      <div className="pt-24 px-4 max-w-5xl mx-auto">
       <h2 className="text-xl font-bold mb-4">Participated Events</h2>
 
       {events.length === 0 ? (
@@ -111,6 +118,7 @@ function Profile() {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }
