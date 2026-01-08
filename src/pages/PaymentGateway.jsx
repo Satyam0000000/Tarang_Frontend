@@ -42,7 +42,7 @@ function PaymentGateway() {
         customer: {
           id: userData.customerId,
           name: userData.name,
-          email: userData.email,
+          email: tokenEmail,
           phone: userData.phone,
         },
       });
@@ -54,7 +54,7 @@ function PaymentGateway() {
           customer: {
             id: userData.customerId,
             name: userData.name,
-            email: userData.email,
+            email: tokenEmail,
             phone: userData.phone,
           },
 
