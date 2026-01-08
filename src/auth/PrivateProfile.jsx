@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { UserCircle } from "lucide-react";
 
 function Profile() {
   const [events, setEvents] = useState([]);
@@ -103,16 +104,39 @@ function Profile() {
             shadow-lg
           "
         >
-          <h2
-            className="
-              text-2xl font-bold
-              bg-clip-text text-transparent
-              bg-gradient-to-r from-purple-400 to-blue-400
-            "
-          >
-            {user.fullName || user.name}
-          </h2>
-          <p className="text-sm text-gray-300 mt-1">{user.email}</p>
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+            {/* Avatar / Logo */}
+            <div className="
+              w-20 h-20 rounded-full
+              flex items-center justify-center
+              bg-gradient-to-br from-purple-500 to-blue-500
+              shadow-[0_0_25px_rgba(139,92,246,0.45)]
+            ">
+              <UserCircle size={48} className="text-white" />
+            </div>
+
+            {/* User Info */}
+            <div className="text-center sm:text-left">
+              <h2
+                className="
+                  text-2xl font-bold
+                  bg-clip-text text-transparent
+                  bg-gradient-to-r from-purple-400 to-blue-400
+                "
+              >
+                {user.fullName || user.name}
+              </h2>
+              <p className="text-sm text-gray-300 mt-1">{user.email}</p>
+              <p className="text-xs text-gray-400 mt-1">
+                Member since {user.createdAt
+                  ? new Date(user.createdAt).toLocaleDateString("en-IN", {
+                      month: "long",
+                      year: "numeric",
+                    })
+                  : ""}
+              </p>
+            </div>
+          </div>
         </motion.div>
       )}
       <h2 className="text-xl font-bold mb-4">Participated Events</h2>
