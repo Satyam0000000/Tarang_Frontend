@@ -3,22 +3,9 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { load } from "@cashfreepayments/cashfree-js";
-import jwtDecode from "jwt-decode";
 
 function PaymentGateway() {
   const location = useLocation();
-
-  const token = localStorage.getItem("token");
-  let tokenEmail = "";
-
-  if (token) {
-    try {
-      const decoded = jwtDecode(token);
-      tokenEmail = decoded.email;
-    } catch (e) {
-      console.error("Invalid token");
-    }
-  }
 
   const passedAmount = location.state?.amount || "";
   const userData = location.state?.userData || null;
@@ -28,6 +15,12 @@ function PaymentGateway() {
   const [message, setMessage] = useState("");
 
   const handlePayment = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setMessage("Please login before making payment.");
+      return;
+    }
+
     if (!userData) {
       setMessage("Please login before making payment.");
       return;
@@ -42,7 +35,7 @@ function PaymentGateway() {
         customer: {
           id: userData.customerId,
           name: userData.name,
-          email: tokenEmail,
+          email: undefined,
           phone: userData.phone,
         },
       });
@@ -50,18 +43,16 @@ function PaymentGateway() {
         "https://tarang-backend-alpha.vercel.app/api/create-order",
         {
           amount,
-          email: tokenEmail,
           customer: {
             id: userData.customerId,
             name: userData.name,
-            email: tokenEmail,
+            email: undefined,
             phone: userData.phone,
           },
 
           // 🔹 registration + event details (for PendingOrder)
           registration: {
             fullName: userData.name,
-            email: tokenEmail,
             phone: userData.phone,
             collegeName: userData.collegeName,
             degree: userData.degree,
@@ -72,6 +63,11 @@ function PaymentGateway() {
           event: {
             eventId: userData.eventId,
             eventName: userData.eventName,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
         }
       );
