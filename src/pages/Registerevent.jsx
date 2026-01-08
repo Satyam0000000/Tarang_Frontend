@@ -68,9 +68,22 @@ function RegisterEvent() {
             paymentStatus: "FREE",
           }
         );
-        //alert("Registration Successful (Free Event)!");
-        setFormData(initialFormState); // clear form
+
         setLoading(false);
+
+        // ✅ Redirect to free registration success page
+        navigate("/registration-success", {
+          state: {
+            fullName: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            eventName,
+            amount: 0,
+            type: "FREE",
+          },
+        });
+
+        setFormData(initialFormState);
       }
     } catch (error) {
       setLoading(false);

@@ -18,6 +18,7 @@ import RewardedFellow from "./pages/RewardedFellow";
 import RegisterEvent from "./pages/Registerevent";
 import NotFound from "./pages/NotFound";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import RegistrationSuccess from "./pages/RegistrationSuccess"
 
 // Auth
 import Login from "./auth/Login";
@@ -52,6 +53,8 @@ function App() {
         <Route path="/payment" element={<PaymentGateway />} />
         <Route path="/registerevent" element={<RegisterEvent />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/registration-success" element={< RegistrationSuccess/>} />
+
 
         {/* Auth Pages */}
         <Route path="/login" element={<Login setUser={setUser} />} />
