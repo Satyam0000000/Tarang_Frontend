@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
+import jsPDF from "jspdf";
 
 function PaymentSuccess() {
   const [params] = useSearchParams();
@@ -9,6 +10,40 @@ function PaymentSuccess() {
   const [status, setStatus] = useState("VERIFYING");
   const [paymentId, setPaymentId] = useState(null);
   const [details, setDetails] = useState(null);
+
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    const generatedAt = new Date().toLocaleString();
+
+    // 🔷 Branding
+    doc.setFontSize(22);
+    doc.text("Tarang Club", 20, 20);
+
+    doc.setFontSize(12);
+    doc.text("Event Registration Receipt", 20, 28);
+    doc.text(`Generated on: ${generatedAt}`, 20, 36);
+
+    doc.setFontSize(12);
+    doc.text(`Order ID: ${orderId || "-"}`, 20, 50);
+    doc.text(`Payment ID: ${paymentId || "-"}`, 20, 60);
+    doc.text(`Status: ${status}`, 20, 70);
+
+    if (details) {
+      doc.text(`Name: ${details.name}`, 20, 90);
+      doc.text(`Email: ${details.email}`, 20, 100);
+      doc.text(`Event: ${details.eventName}`, 20, 110);
+      doc.text(`Amount: ₹${details.amount}`, 20, 120);
+    }
+
+    doc.setFontSize(10);
+    doc.text(
+      "Thank you for registering with Tarang Club. This receipt is system generated.",
+      20,
+      145
+    );
+
+    doc.save(`payment_${orderId || "receipt"}.pdf`);
+  };
 
   useEffect(() => {
     if (!orderId) {
@@ -94,6 +129,12 @@ function PaymentSuccess() {
         )}
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={downloadPDF}
+            className="rounded-lg border border-emerald-500/40 px-6 py-2.5 text-sm font-medium text-emerald-300 transition hover:bg-emerald-500/10"
+          >
+            Download PDF
+          </button>
           <a
             href="/UpcomingEvents"
             className="rounded-lg bg-violet-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-violet-700"
