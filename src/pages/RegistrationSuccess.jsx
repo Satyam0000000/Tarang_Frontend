@@ -1,4 +1,5 @@
 import React from "react";
+import jsPDF from "jspdf";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function RegistrationSuccess() {
@@ -26,6 +27,35 @@ function RegistrationSuccess() {
   }
 
   const { fullName, email, eventName, amount } = state;
+
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    const generatedAt = new Date().toLocaleString();
+
+    // Branding
+    doc.setFontSize(22);
+    doc.text("Tarang Club", 20, 20);
+
+    doc.setFontSize(12);
+    doc.text("Event Registration Receipt", 20, 28);
+    doc.text(`Generated on: ${generatedAt}`, 20, 36);
+
+    doc.setFontSize(12);
+    doc.text(`Name: ${fullName}`, 20, 55);
+    doc.text(`Email: ${email}`, 20, 65);
+    doc.text(`Event: ${eventName}`, 20, 75);
+    doc.text(`Amount: ₹${amount}`, 20, 85);
+    doc.text("Payment Type: Free Registration", 20, 95);
+
+    doc.setFontSize(10);
+    doc.text(
+      "Thank you for registering with Tarang Club. This receipt is system generated.",
+      20,
+      120
+    );
+
+    doc.save(`registration_${eventName.replace(/\s+/g, "_")}.pdf`);
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e] text-white px-4 pt-28">
@@ -76,14 +106,19 @@ function RegistrationSuccess() {
           </div>
         </div>
 
-        <div className="mt-8 flex justify-between gap-4">
+        <div className="mt-8 flex justify-between gap-4 flex-wrap">
+          <button
+            onClick={downloadPDF}
+            className="rounded-lg border border-emerald-500/40 px-6 py-2.5 text-sm font-medium text-emerald-300 transition hover:bg-emerald-500/10"
+          >
+            Download PDF
+          </button>
           <button
             onClick={() => navigate("/")}
             className="rounded-lg border border-violet-500/40 px-6 py-2.5 text-sm font-medium text-violet-300 transition hover:bg-violet-500/10"
           >
             Home
           </button>
-
           <button
             onClick={() => navigate("/UpcomingEvents")}
             className="rounded-lg bg-violet-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-violet-700"
