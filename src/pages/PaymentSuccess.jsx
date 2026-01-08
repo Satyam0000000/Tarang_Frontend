@@ -81,6 +81,12 @@ function PaymentSuccess() {
       <div className="relative max-w-lg w-full rounded-2xl border border-violet-400/15 bg-[#141432]/70 p-8 text-center shadow-md">
         
 
+        {(status === "VERIFYING" || status === "PENDING") && (
+          <div className="mb-4 flex justify-center">
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-violet-500/30 border-t-violet-500"></div>
+          </div>
+        )}
+
         <h1 className="text-3xl font-bold tracking-wide text-white">
           {status === "VERIFYING" && "Verifying payment..."}
           {status === "PAID" && "Payment Successful "}
