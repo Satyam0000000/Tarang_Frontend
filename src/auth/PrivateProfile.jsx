@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 function Profile() {
   const [events, setEvents] = useState([]);
@@ -30,7 +31,54 @@ function Profile() {
     fetchRegistrations();
   }, []);
 
-  if (loading) return <p>Loading your events...</p>;
+  if (loading) {
+    return (
+      <div
+        className="
+          min-h-screen pt-24 px-4 flex items-start justify-center
+          bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e]
+          text-white
+        "
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="
+            w-full max-w-5xl
+            bg-[#151533]/40 backdrop-blur-xl
+            border border-purple-500/20
+            rounded-2xl shadow-lg
+            p-8
+          "
+        >
+          <h2
+            className="
+              text-2xl font-bold mb-6
+              bg-clip-text text-transparent
+              bg-gradient-to-r from-purple-400 to-blue-400
+            "
+          >
+            Loading your profile…
+          </h2>
+
+          <div className="space-y-4">
+            {[1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="
+                  h-24 rounded-xl
+                  bg-[#ffffff0a]
+                  border border-white/10
+                  animate-pulse
+                "
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-24 px-4 max-w-5xl mx-auto">
