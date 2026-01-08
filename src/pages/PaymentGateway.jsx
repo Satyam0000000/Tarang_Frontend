@@ -3,9 +3,22 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { load } from "@cashfreepayments/cashfree-js";
+import jwtDecode from "jwt-decode";
 
 function PaymentGateway() {
   const location = useLocation();
+
+  const token = localStorage.getItem("token");
+  let tokenEmail = "";
+
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      tokenEmail = decoded.email;
+    } catch (e) {
+      console.error("Invalid token");
+    }
+  }
 
   const passedAmount = location.state?.amount || "";
   const userData = location.state?.userData || null;
@@ -37,6 +50,7 @@ function PaymentGateway() {
         "https://tarang-backend-alpha.vercel.app/api/create-order",
         {
           amount,
+          email: tokenEmail,
           customer: {
             id: userData.customerId,
             name: userData.name,
@@ -47,7 +61,7 @@ function PaymentGateway() {
           // 🔹 registration + event details (for PendingOrder)
           registration: {
             fullName: userData.name,
-            email: userData.email,
+            email: tokenEmail,
             phone: userData.phone,
             collegeName: userData.collegeName,
             degree: userData.degree,

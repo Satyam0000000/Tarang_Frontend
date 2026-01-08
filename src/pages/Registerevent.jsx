@@ -48,12 +48,25 @@ function RegisterEvent() {
         eventName,
       };
       if (eventAmount) {
+        const token = localStorage.getItem("token");
+
+        // 🔐 Ensure user is logged in before paid registration
+        if (!token) {
+          alert("Please login to register for the event");
+          setLoading(false);
+          return;
+        }
+
+        // 👉 JWT stays in localStorage, will be sent in createOrder API
         navigate("/payment", {
           state: {
             amount: eventAmount,
             userData: paymentUserData,
+            eventId,
+            eventName,
           },
         });
+
         setLoading(false);
       } else {
         const token = localStorage.getItem("token");
