@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { UserCircle } from "lucide-react";
 
 const Header = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -96,13 +97,26 @@ const Header = ({ user, setUser }) => {
           </>
         )}
         </nav>
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile Icons */}
+        <div className="md:hidden flex items-center gap-3">
+          {user && (
+            <button
+              onClick={() => navigate("/profile")}
+              className="text-white hover:text-purple-400 transition"
+              aria-label="Profile"
+            >
+              <UserCircle size={26} />
+            </button>
+          )}
+
+          <button
+            className="text-white"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
       {/* Mobile Navigation */}
       <AnimatePresence>
