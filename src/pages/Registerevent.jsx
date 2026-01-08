@@ -13,7 +13,6 @@ function RegisterEvent() {
     fullName: "",
     collegeName: "",
     phone: "",
-    email: "",
     degree: "",
     year: "",
     heardFrom: "",
@@ -40,7 +39,6 @@ function RegisterEvent() {
       const paymentUserData = {
         customerId: generatedCustomerId,
         name: formData.fullName,
-        email: formData.email,
         phone: formData.phone,
         collegeName: formData.collegeName,
         degree: formData.degree,
@@ -58,6 +56,12 @@ function RegisterEvent() {
         });
         setLoading(false);
       } else {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          alert("Please login to register for the event");
+          setLoading(false);
+          return;
+        }
         await axios.post(
           "https://tarang-backend-alpha.vercel.app/api/registerEvent",
           {
@@ -66,6 +70,11 @@ function RegisterEvent() {
             eventName,
             amount: 0,
             paymentStatus: "FREE",
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
         );
 
@@ -75,7 +84,6 @@ function RegisterEvent() {
         navigate("/registration-success", {
           state: {
             fullName: formData.fullName,
-            email: formData.email,
             phone: formData.phone,
             eventName,
             amount: 0,
@@ -132,16 +140,6 @@ function RegisterEvent() {
           onChange={handleChange}
           className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
           pattern="[0-9]*"
-        />
-
-        <label className="block mb-3 text-gray-300">Email</label>
-        <input
-          type="email"
-          name="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full mb-4 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
         />
 
         <label className="block mb-3 text-gray-300">Degree</label>
