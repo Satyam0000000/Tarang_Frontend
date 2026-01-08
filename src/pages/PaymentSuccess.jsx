@@ -48,9 +48,9 @@ function PaymentSuccess() {
 
         <h1 className="text-3xl font-bold tracking-wide text-white">
           {status === "VERIFYING" && "Verifying payment..."}
-          {status === "PAID" && "Payment Successful 🎉"}
-          {status === "PENDING" && "Payment Pending ⏳"}
-          {status === "FAILED" && "Payment Failed ❌"}
+          {status === "PAID" && "Payment Successful "}
+          {status === "PENDING" && "Payment Pending "}
+          {status === "FAILED" && "Payment Failed "}
         </h1>
 
         <p className="mt-4 text-sm text-violet-200">
