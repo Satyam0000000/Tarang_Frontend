@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 function Profile() {
   const [events, setEvents] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,6 +22,7 @@ function Profile() {
         );
 
         setEvents(res.data.data);
+        setUser(res.data.user);
       } catch (err) {
         console.error("Failed to load registrations", err);
       } finally {
@@ -89,6 +91,30 @@ function Profile() {
       "
     >
       <div className="pt-24 px-4 max-w-5xl mx-auto">
+      {user && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="
+            mb-8 p-6 rounded-2xl
+            bg-[#151533]/40 backdrop-blur-xl
+            border border-purple-500/20
+            shadow-lg
+          "
+        >
+          <h2
+            className="
+              text-2xl font-bold
+              bg-clip-text text-transparent
+              bg-gradient-to-r from-purple-400 to-blue-400
+            "
+          >
+            {user.name}
+          </h2>
+          <p className="text-sm text-gray-300 mt-1">{user.email}</p>
+        </motion.div>
+      )}
       <h2 className="text-xl font-bold mb-4">Participated Events</h2>
 
       {events.length === 0 ? (
@@ -102,7 +128,13 @@ function Profile() {
             >
               <h3 className="font-semibold text-lg text-white">{event.eventName}</h3>
               <p className="text-sm mt-1">
-                Status: <span className="font-medium text-green-400">{event.paymentStatus}</span>
+                Status: <span className={`font-medium ${
+                  event.paymentStatus === "FREE"
+                    ? "text-yellow-400"
+                    : "text-yellow-300"
+                }`}>
+                  {event.paymentStatus}
+                </span>
               </p>
               <p className="text-sm">
                 Amount: <span className="font-medium text-indigo-400">₹{event.amount}</span>
