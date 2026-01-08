@@ -109,8 +109,8 @@ function Profile() {
             <div className="
               w-20 h-20 rounded-full
               flex items-center justify-center
-              bg-gradient-to-br from-purple-500 to-blue-500
-              shadow-[0_0_25px_rgba(139,92,246,0.45)]
+              bg-gradient-to-br from-purple-400 to-blue-400
+              shadow-[0_0_15px_rgba(139,92,246,0.25)]
             ">
               <UserCircle size={48} className="text-white" />
             </div>
@@ -120,21 +120,12 @@ function Profile() {
               <h2
                 className="
                   text-2xl font-bold
-                  bg-clip-text text-transparent
-                  bg-gradient-to-r from-purple-400 to-blue-400
+                  text-yellow-400
                 "
               >
                 {user.fullName || user.name}
               </h2>
-              <p className="text-sm text-gray-300 mt-1">{user.email}</p>
-              <p className="text-xs text-gray-400 mt-1">
-                Member since {user.createdAt
-                  ? new Date(user.createdAt).toLocaleDateString("en-IN", {
-                      month: "long",
-                      year: "numeric",
-                    })
-                  : ""}
-              </p>
+              <p className="text-sm text-white mt-1">{user.email}</p>
             </div>
           </div>
         </motion.div>
