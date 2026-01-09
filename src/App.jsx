@@ -25,6 +25,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Account from "./auth/Account";
 import PrivateProfile from "./auth/PrivateProfile";
+import OtpVerification from "./auth/OtpVerification"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -54,6 +55,7 @@ function App() {
         <Route path="/registerevent" element={<RegisterEvent />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/registration-success" element={< RegistrationSuccess/>} />
+        <Route path="/OtpVerification" element={<OtpVerification/>} />
 
 
         {/* Auth Pages */}

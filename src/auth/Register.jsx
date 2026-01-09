@@ -29,7 +29,7 @@ function Registration() {
      // const res = await axios.post("http://localhost:8000/register", formData); //for loacalhost
      // alert(res.data.message);
       setLoading(false);
-      navigate("/login");
+      navigate("/OtpVerification", {state: {email: formData.email}});
     } catch (err) {
       setLoading(false);
       if (err.response && err.response.data.message === "User already exists") {
