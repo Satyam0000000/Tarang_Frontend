@@ -41,13 +41,13 @@ function OtpVerification() {
             } else if (err.response && err.response.data.message === "OTP Incorrect"){ 
             setError("OTP Incorrect");
             setTimeout(() => navigate("/login"), 2000);
-            
+
       } else {
         setError("Something went wrong. Try again later.");
       }
         
         
-    }
+    }}
 
   return (
     <div
