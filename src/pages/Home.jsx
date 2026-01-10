@@ -23,25 +23,25 @@ const Home = () => {
   const insights = [
     {
       icon: (
-        <Theater className="w-4 h-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 group-hover:from-blue-400 group-hover:to-purple-400 transition-all" />
+        <Theater className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 transition-all" />
       ),
       label: "Performance on Stage",
     },
     {
       icon: (
-        <Rocket className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 group-hover:from-blue-400 group-hover:to-purple-400 transition-all" />
+        <Rocket className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 transition-all" />
       ),
       label: "Loose Nervousness",
     },
     {
       icon: (
-        <Mic className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 group-hover:from-blue-400 group-hover:to-purple-400 transition-all" />
+        <Mic className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 transition-all" />
       ),
       label: "Build Personality",
     },
     {
       icon: (
-        <Trophy className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 group-hover:from-blue-400 group-hover:to-purple-400 transition-all" />
+        <Trophy className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 transition-all" />
       ),
       label: "Rewars & Recognition",
     },
@@ -84,7 +84,7 @@ const Home = () => {
     },
     { 
       title: "Youth Poetry Fest",
-      ate: "No events yet...", 
+      date: "No events yet...", 
       tag: "Poetry",
       image:NoEventsImg,
     },
@@ -158,24 +158,37 @@ const Home = () => {
               <motion.div
                 key={i}
                 whileHover={{
-                  scale: 1.11,
-                  y: -6,
-                  boxShadow: "0 0 25px rgba(139,92,246,0.5)",
+                  scale: 1.12,
+                  y: -8,
+                  boxShadow: "0 0 35px rgba(139,92,246,0.6)",
                 }}
                 whileTap={{ scale: 0.97 }}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   type: "spring",
-                  stiffness: 300,
-                  damping: 15,
+                  stiffness: 260,
+                  damping: 14,
                   delay: 0.01 + i * 0.05,
                 }}
                 className="group flex flex-col items-center justify-center 
-                bg-[#151533]/40 backdrop-blur-md p-4 rounded-xl shadow-md cursor-pointer"
+bg-gradient-to-br from-[#1b1b38]/60 to-[#151533]/60
+backdrop-blur-xl p-5 rounded-2xl 
+border border-purple-500/10
+shadow-md cursor-pointer"
               >
-                {item.icon}
-                <p className="font-medium text-sm sm:text-base text-gray-300 mt-2">
+                <div className="
+  mb-3 flex items-center justify-center
+  w-12 h-12 sm:w-14 sm:h-14
+  rounded-full
+  bg-gradient-to-br from-purple-500/30 to-blue-500/30
+  shadow-[0_0_20px_rgba(139,92,246,0.4)]
+">
+  {item.icon}
+</div>
+                <p className="font-semibold text-sm sm:text-base
+text-gray-200 tracking-wide text-center
+">
                   {item.label}
                 </p>
               </motion.div>
