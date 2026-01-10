@@ -43,7 +43,7 @@ const Home = () => {
       icon: (
         <Trophy className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 transition-all" />
       ),
-      label: "Rewars & Recognition",
+      label: "Rewards & Recognition",
     },
   ];
 
@@ -256,7 +256,7 @@ text-gray-200 tracking-wide text-center
               <img
                 src={event.image}
                 alt={event.title}
-                className="h-28 sm:h-40 w-full object-cover rounded-t-2xl"
+                className="h-28 sm:h-40 w-full object-contain bg-[#0b0b1e] rounded-t-2xl"
               />
 
               <div className="p-4 sm:p-6">
