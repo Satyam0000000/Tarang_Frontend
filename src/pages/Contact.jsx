@@ -53,8 +53,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Contact Form */}
-        <motion.form
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -63,45 +62,27 @@ const Contact = () => {
           backdrop-blur-xl rounded-2xl p-6 sm:p-8
           border border-purple-500/10 shadow-md"
         >
-          <h2 className="text-xl font-semibold mb-6 text-gray-200">
-            Send a Message
+          <h2 className="text-xl font-semibold mb-4 text-gray-200">
+            Contact Developer
           </h2>
 
-          <div className="space-y-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full px-4 py-3 rounded-lg bg-[#0b0b1e]/60
-              border border-purple-500/10 text-gray-200
-              focus:outline-none focus:border-purple-500/40"
-            />
+          <p className="text-gray-400 text-sm sm:text-base mb-6">
+            Facing any bugs, issues, or technical problems on the website?  
+            Feel free to contact the developer directly.
+          </p>
 
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full px-4 py-3 rounded-lg bg-[#0b0b1e]/60
-              border border-purple-500/10 text-gray-200
-              focus:outline-none focus:border-purple-500/40"
-            />
+          <div className="space-y-4 text-gray-300 text-sm sm:text-base">
+            <div className="flex items-center gap-4">
+              <Mail className="w-5 h-5 text-purple-400" />
+              <span>satyamgoswami.dev@gmail.com</span>
+            </div>
 
-            <textarea
-              rows="4"
-              placeholder="Your Message"
-              className="w-full px-4 py-3 rounded-lg bg-[#0b0b1e]/60
-              border border-purple-500/10 text-gray-200
-              focus:outline-none focus:border-purple-500/40 resize-none"
-            />
-
-            <button
-              type="submit"
-              className="w-full py-3 mt-2 rounded-lg font-medium
-              bg-gradient-to-r from-purple-500 to-blue-500
-              hover:opacity-90 transition-all"
-            >
-              Send Message
-            </button>
+            <div className="flex items-center gap-4">
+              <Phone className="w-5 h-5 text-purple-400" />
+              <span>+91 9XXXXXXXXX</span>
+            </div>
           </div>
-        </motion.form>
+        </motion.div>
 
       </div>
     </div>
