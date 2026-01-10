@@ -163,13 +163,13 @@ const Home = () => {
                   boxShadow: "0 0 35px rgba(139,92,246,0.6)",
                 }}
                 whileTap={{ scale: 0.97 }}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{
+                  y: [0, -4, 0],
+                }}
                 transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 14,
-                  delay: 0.01 + i * 0.05,
+                  duration: 3 + i * 0.3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                 }}
                 className="group flex flex-col items-center justify-center 
 bg-gradient-to-br from-[#1b1b38]/60 to-[#151533]/60
@@ -177,15 +177,7 @@ backdrop-blur-xl p-5 rounded-2xl
 border border-purple-500/10
 shadow-md cursor-pointer"
               >
-                <div className="
-  mb-3 flex items-center justify-center
-  w-12 h-12 sm:w-14 sm:h-14
-  rounded-full
-  bg-gradient-to-br from-purple-500/30 to-blue-500/30
-  shadow-[0_0_20px_rgba(139,92,246,0.4)]
-">
-  {item.icon}
-</div>
+                {item.icon}
                 <p className="font-semibold text-sm sm:text-base
 text-gray-200 tracking-wide text-center
 ">
