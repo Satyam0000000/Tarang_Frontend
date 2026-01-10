@@ -19,6 +19,7 @@ import RegisterEvent from "./pages/Registerevent";
 import NotFound from "./pages/NotFound";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import RegistrationSuccess from "./pages/RegistrationSuccess"
+import Contact from './pages/Contact';
 
 // Auth
 import Login from "./auth/Login";
@@ -56,6 +57,7 @@ function App() {
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/registration-success" element={< RegistrationSuccess/>} />
         <Route path="/OtpVerification" element={<OtpVerification/>} />
+        <Route path="/contact" element={<Contact/>} />
 
 
         {/* Auth Pages */}
