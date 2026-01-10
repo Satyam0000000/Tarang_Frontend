@@ -2,30 +2,34 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import UpcomingEventsImg from "../assets/UpComingevent/UpcomingEvents.png";
 const eventsData = [
   {
     id: 1,
-    title: "Tech Fiesta 2025",
-    date: "12 Nov 2025",
+    title: "Verbal Verdict",
+    date: "To be announced...",
     entryFee: "₹100",
     description:
-      "An inter-college tech event featuring hackathons, coding challenges, and AI exhibitions. Winners get exciting prizes and internship opportunities.",
+      "Where powerful words decide the final judgment.A fast-paced debate contest testing clarity, confidence, and reasoning.",
+    image:UpcomingEventsImg,
   },
   {
     id: 2,
-    title: "Cultural Night",
-    date: "25 Nov 2025",
+    title: "The Grand Argument",
+    date: "To be announced...",
     entryFee: "Free",
     description:
-      "A night of dance, music, and performances by students and guest artists. Entry is free for all registered students.",
+      "An intense platform for structured arguments and critical thinking.Debaters compete to persuade, rebut, and dominate the discourse.",
+    image:UpcomingEventsImg,
   },
   {
     id: 3,
-    title: "Startup Pitch Battle",
-    date: "10 Dec 2025",
+    title: "Clash of Perspectives",
+    date: "To be announced...",
     entryFee: "₹200",
     description:
-      "Pitch your innovative startup ideas to real investors and industry experts. Top 3 teams will receive funding support and mentorship.",
+      "A high-energy debate competition where logic meets conviction. Participants challenge ideas, defend viewpoints, and redefine perspectives.",
+    image:UpcomingEventsImg,
   },
 ];
 
@@ -60,7 +64,12 @@ function UpcomingEvents() {
             text-sm
           "
           >
-            <div className="h-28 sm:h-40 w-full bg-[#27274a]/40 rounded-t-3xl"></div>
+            {/* Upcoming event image here */}
+            <img
+              src={event.image}
+              alt={event.title}
+              className="h-28 sm:h-40 w-full object-cover rounded-t-3xl"
+             />
 
             <div className="p-5 sm:p-6">
               <h2 className="text-xl font-semibold text-gray-200 mb-2">

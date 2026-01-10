@@ -1,37 +1,38 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import NoEventsImg from "../assets/UpComingevent/NoEvents.png";
 
 const pastEvents = [
   {
     id: 1,
-    title: "Tech Fiesta 2024",
-    heldOn: "12 Nov 2024",
-    winners: "Rahul Sharma (1st), Ananya Verma (2nd)",
-    prize: "₹10,000 + Goodies",
-    youtube: "https://youtube.com",
-    description:
-      "A full–day technical extravaganza with coding rounds, quizzes, and project showcases.",
+    title: "Previous Debate Event",
+    heldOn: "No events yet",
+    winners: "N/A",
+    prize: "N/A",
+    youtube: "",
+    description: "No events yet.",
+    image: NoEventsImg,
   },
   {
     id: 2,
-    title: "Cultural Night 2024",
-    heldOn: "25 Oct 2024",
-    winners: "Simran Kaur (Solo), Team Zenith (Group)",
-    prize: "Certificates + Gift Hampers",
+    title: "Previous Cultural Event",
+    heldOn: "No events yet",
+    winners: "N/A",
+    prize: "N/A",
     youtube: "",
-    description:
-      "A beautiful evening filled with dance, music, drama, and crowd performances.",
+    description: "No events yet.",
+    image: NoEventsImg,
   },
   {
     id: 3,
-    title: "Debate Championship 2023",
-    heldOn: "5 Sept 2023",
-    winners: "Karan Singh (Winner), Muskan Patel (Runner-Up)",
-    prize: "₹5,000 + Trophy",
+    title: "Previous Championship",
+    heldOn: "No events yet",
+    winners: "N/A",
+    prize: "N/A",
     youtube: "",
-    description:
-      "A campus-wide debate competition where participants showcased exceptional oratory skills.",
+    description: "No events yet.",
+    image: NoEventsImg,
   },
 ];
 
@@ -66,7 +67,12 @@ function PreviousEvents() {
             text-sm
           "
           >
-            <div className="h-28 sm:h-40 w-full bg-[#27274a]/40 rounded-t-2xl"></div>
+            {/* Previous event image here */}
+            <img
+              src={event.image}
+              alt={event.title}
+              className="h-28 sm:h-40 w-full object-cover rounded-t-2xl"
+            />
 
             <div className="p-4 sm:p-6">
               <h2 className="text-xl font-semibold text-gray-200 mb-2">
