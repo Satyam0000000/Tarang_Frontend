@@ -38,12 +38,12 @@ const Contact = () => {
           <div className="space-y-5 text-gray-300 text-sm sm:text-base">
             <div className="flex items-center gap-4">
               <Mail className="w-5 h-5 text-purple-400" />
-              <span>debateclub@college.edu</span>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <Phone className="w-5 h-5 text-purple-400" />
-              <span>+91 9XXXXXXXXX</span>
+              <a
+                href="mailto:anand.tarang.nitj@gmail.com"
+                className="hover:text-violet-400 transition-colors"
+              >
+                anand.tarang.nitj@gmail.com
+              </a>
             </div>
 
             <div className="flex items-center gap-4">
@@ -74,13 +74,19 @@ const Contact = () => {
           <div className="space-y-4 text-gray-300 text-sm sm:text-base">
             <div className="flex items-center gap-4">
               <Mail className="w-5 h-5 text-purple-400" />
-              <span>satyamgoswami.dev@gmail.com</span>
+              <a
+                href="mailto:satyamgoswami2705@gmail.com"
+                className="hover:text-violet-400 transition-colors"
+              >
+                satyamgoswami2705@gmail.com
+              </a>
             </div>
 
             <div className="flex items-center gap-4">
-              <Phone className="w-5 h-5 text-purple-400" />
-              <span>+91 9XXXXXXXXX</span>
+              <MapPin className="w-5 h-5 text-purple-400" />
+              <span>NIT Jalandhar, Punjab, India</span>
             </div>
+
           </div>
         </motion.div>
 
