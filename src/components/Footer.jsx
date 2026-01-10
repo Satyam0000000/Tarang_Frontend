@@ -71,7 +71,7 @@ const Footer = () => {
           <p className="text-sm text-gray-400 mb-3">
             NIT Jalandhar, Punjab, India<br />
             Support Email: <a href="mailto:anand.tarang.nitj@gmail.com" className="hover:text-violet-400">anand.tarang.nitj@gmail.com</a><br />
-            Developer Help Email: <a href="mailto:satyamgoswami2705@gmail.com" className="hover:text-violet-400">satyamgoswami2705@gmail.com</a>
+            Developer Email: <a href="mailto:satyamgoswami2705@gmail.com" className="hover:text-violet-400">satyamgoswami2705@gmail.com</a>
           </p>
           <div className="flex space-x-5 text-2xl">
             <motion.a whileHover={{ scale: 1.2 }} href="https://linkedin.com" target="_blank" rel="noreferrer">
