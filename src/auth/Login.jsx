@@ -23,8 +23,7 @@ const Login = ({ setUser }) => {
       const res = await axios.post("https://tarang-backend-alpha.vercel.app/api/login", formData,{
         headers: {
           "Content-Type": "application/json"
-        },
-        withCredentials : true,
+        }
       }); //for vercel
       //const res = await axios.post("http://localhost:8000/login", formData); //for local
       if (res.data.success) {
