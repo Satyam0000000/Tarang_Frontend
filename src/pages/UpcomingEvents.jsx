@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import UpcomingEventsImg from "../assets/UpComingevent/UpcomingEvents.png";
@@ -43,6 +43,12 @@ const eventsData = [
 function UpcomingEvents() {
   const [expandedId, setExpandedId] = useState(null);
   const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/register", { replace: true });
+    }
+  }, [navigate]);
   return (
     <div className="w-full py-16 px-4 sm:px-10 
     bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e] text-white min-h-screen">
