@@ -1,8 +1,18 @@
 /* eslint-disable no-unused-vars */
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const PopUp = ({ open, onClose }) => {
+  const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem("token");
+
+  const handleExplore = () => {
+    onClose();
+    if (isLoggedIn) navigate("/UpcomingEvents");
+    else navigate("/register");
+  };
+
   return (
     <AnimatePresence>
       {open && (
@@ -44,19 +54,21 @@ const PopUp = ({ open, onClose }) => {
 
             {/* Title */}
             <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Verbal Verdict 2026
+              Social Media & 5th Generation Warfare (28 Jan 2026)
             </h2>
 
             {/* Description */}
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-              Step into the arena of ideas. Compete, persuade, and sharpen your
-              communication skills in our flagship debate event. Registrations
-              are now live.
+            <p className="text-gray-300 text-smsm:text-base leading-relaxed mb-6">
+              A online debate initiative that sharpens thinking, expression, and 
+              officer-like communication for CDS–SSB aspirants and all students 
+              who want's improvement through real-time discussions. Designed 
+              to mirror SSB discussion & psychological scenarios, helping 
+              participants build confidence.
             </p>
 
             {/* CTA */}
             <button
-              onClick={onClose}
+              onClick={handleExplore}
               className="
                 w-full py-3 rounded-xl font-semibold
                 bg-gradient-to-r from-purple-500 to-blue-500
