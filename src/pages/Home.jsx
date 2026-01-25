@@ -8,7 +8,7 @@ import MUNImg from "../assets/UpComingevent/MUN.png";
 import PoetryImg from "../assets/UpComingevent/Poetry.png";
 import StorytellingImg from "../assets/UpComingevent/Storytelling.png";
 import NoEventsImg from "../assets/UpComingevent/NoEvents.png";
-import PopUp from "../pages/PopUp";
+//import PopUp from "../pages/PopUp";
 
 
 const Home = () => {
