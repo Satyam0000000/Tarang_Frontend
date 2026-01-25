@@ -20,11 +20,35 @@ function RegisterEvent() {
   };
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(initialFormState);
+  const [couponCode, setCouponCode] = useState("");
+  const [discountedAmount, setDiscountedAmount] = useState(eventAmount);
 
   const degreeYears = {
     BTech: ["1st Year", "2nd Year", "3rd Year", "4th Year"],
     MTech: ["1st Year", "2nd Year"],
     PhD: ["PhD"],
+  };
+
+  // 🎟️ Coupon configuration (editable anytime)
+  const COUPONS = {
+    TARANG60: 60, // 60% off
+    TARANG30: 30, // 30% off
+  };
+
+  const applyCoupon = () => {
+    if (!couponCode || !eventAmount) return;
+
+    const discountPercent = COUPONS[couponCode.toUpperCase()];
+    if (!discountPercent) {
+      alert("Invalid coupon code");
+      setDiscountedAmount(eventAmount);
+      return;
+    }
+
+    const finalAmount =
+      Math.round(eventAmount - (eventAmount * discountPercent) / 100);
+
+    setDiscountedAmount(finalAmount);
   };
 
   const handleChange = (e) => {
@@ -60,10 +84,11 @@ function RegisterEvent() {
         // 👉 JWT stays in localStorage, will be sent in createOrder API
         navigate("/payment", {
           state: {
-            amount: eventAmount,
+            amount: discountedAmount,
             userData: paymentUserData,
             eventId,
             eventName,
+            couponCode,
           },
         });
 
@@ -206,6 +231,34 @@ function RegisterEvent() {
           <option value="Social Media">Social Media</option>
           <option value="Website">Website</option>
         </select>
+
+        {eventAmount && (
+          <>
+            <label className="block mb-3 text-gray-300">Coupon Code</label>
+            <div className="flex gap-2 mb-4">
+              <input
+                type="text"
+                value={couponCode}
+                onChange={(e) => setCouponCode(e.target.value)}
+                placeholder="Enter coupon code"
+                className="flex-1 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+              />
+              <button
+                type="button"
+                onClick={applyCoupon}
+                className="px-4 py-2 rounded-lg font-semibold bg-purple-600 hover:bg-purple-700 transition"
+              >
+                Apply
+              </button>
+            </div>
+
+            {discountedAmount !== eventAmount && (
+              <p className="text-green-400 mb-4">
+                Coupon applied! Pay ₹{discountedAmount} instead of ₹{eventAmount}
+              </p>
+            )}
+          </>
+        )}
 
         <button
           type="submit"
