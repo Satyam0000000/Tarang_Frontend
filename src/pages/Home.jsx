@@ -13,16 +13,22 @@ import PopUp from "../pages/PopUp";
 
 const Home = () => {
   const navigate = useNavigate();
-  const isLoggedIn = !!localStorage.getItem("token");
   const [showPopup, setShowPopup] = useState(false);
+  const isLoggedIn = !!localStorage.getItem("token");
 
   useEffect(() => {
+    if (!isLoggedIn) return;
+
+    const popupSeen = localStorage.getItem("popup_seen");
+    if (popupSeen) return;
+
     const timer = setTimeout(() => {
       setShowPopup(true);
+      localStorage.setItem("popup_seen", "true");
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isLoggedIn]);
 
   const handleParticipate = () => {
     if (isLoggedIn) navigate("/UpcomingEvents");
