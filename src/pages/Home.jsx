@@ -328,7 +328,7 @@ text-gray-200 tracking-wide text-center
           ))}
         </div>
       </div>
-      <PopUp open={showPopup} onClose={() => setShowPopup(false)} />
+      {/* <PopUp open={showPopup} onClose={() => setShowPopup(false)} /> */}
     </>
   );
 };
