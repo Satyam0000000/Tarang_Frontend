@@ -8,7 +8,7 @@ const eventsData = [
     id: 1,
     title: "Verbal Verdict",
     date: "To be announced...",
-    entryFee: "₹100",
+    entryFee: "₹1",
     description:
       "Where powerful words decide the final judgment.A fast-paced debate contest testing clarity, confidence, and reasoning.",
     image:UpcomingEventsImg,
