@@ -77,7 +77,7 @@ function PaymentGateway() {
         throw new Error("payment_session_id not received from backend");
       }
       const cashfree = await load({
-        mode: "sandbox", // change to "production" when live
+        mode: "production", // change to "production" when live
       });
 
       await cashfree.checkout({
