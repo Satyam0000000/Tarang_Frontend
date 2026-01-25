@@ -69,25 +69,29 @@ const Home = () => {
       title: "Debate Championship 2026",
       date: "Coming Soon...",
       tag: "Debate",
-      image:debateImg,
+      image: debateImg,
+      isNew: true,
     },
     {
       title: "Inter-College MUN Summit 2026",
       date: "Coming Soon...",
       tag: "MUN",
-      image:MUNImg,
+      image: MUNImg,
+      isNew: false,
     },
     {
       title: "Poetry Slam – Rhythm of Words 2026",
       date: "Coming Soon...",
       tag: "Poetry",
-      image:PoetryImg,
+      image: PoetryImg,
+      isNew: false,
     },
     {
       title: "Storytelling Night – Echoes of Youth 2026",
       date: "Coming Soon...",
       tag: "Storytelling",
-      image:StorytellingImg,
+      image: StorytellingImg,
+      isNew: false,
     },
   ];
 
@@ -257,17 +261,24 @@ text-gray-200 tracking-wide text-center
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true }}
               className="
-        bg-[#1b1b38]/40 backdrop-blur-xl 
-        border border-gray-600/20 
-        rounded-2xl shadow-md 
-        hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]
-        transition-all cursor-pointer text-sm
-      "
+  relative
+  bg-[#1b1b38]/40 backdrop-blur-xl 
+  border border-gray-600/20 
+  rounded-2xl shadow-md 
+  hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]
+  transition-all cursor-pointer text-sm
+"
               onClick={() => {
                 if (isLoggedIn) navigate("/UpcomingEvents");
                 else navigate("/register");
               }}
             >
+              {/* NEW badge */}
+              {event.isNew && (
+                <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
+                  NEW
+                </span>
+              )}
               {/* Upcoming event image here */}
               <img
                 src={event.image}
