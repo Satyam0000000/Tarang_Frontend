@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Theater, Rocket, Mic, Trophy } from "lucide-react";
@@ -8,11 +8,21 @@ import MUNImg from "../assets/UpComingevent/MUN.png";
 import PoetryImg from "../assets/UpComingevent/Poetry.png";
 import StorytellingImg from "../assets/UpComingevent/Storytelling.png";
 import NoEventsImg from "../assets/UpComingevent/NoEvents.png";
+import PopUp from "../components/PopUp";
 
 
 const Home = () => {
   const navigate = useNavigate();
   const isLoggedIn = !!localStorage.getItem("token");
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleParticipate = () => {
     if (isLoggedIn) navigate("/UpcomingEvents");
@@ -318,6 +328,7 @@ text-gray-200 tracking-wide text-center
           ))}
         </div>
       </div>
+      <PopUp open={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 };
