@@ -3,15 +3,20 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import UpcomingEventsImg from "../assets/UpComingevent/UpcomingEvents.png";
+import Jan28EventImg from "../assets/Debate/28_Jan_Event.png"
 const eventsData = [
   {
     id: 1,
-    title: "Verbal Verdict",
-    date: "To be announced...",
+    title: "Social Media & 5th Generation Warfare",
+    date: "28 Jan 2026",
     entryFee: "₹1",
+    time: "10:00 PM onwards",
+    mode: "Online (Zoom)",
+    prize: "Domino's coupon",
     description:
-      "Where powerful words decide the final judgment.A fast-paced debate contest testing clarity, confidence, and reasoning.",
-    image:UpcomingEventsImg,
+      "A online debate initiative that sharpens thinking, expression, and officer-like communication for CDS–SSB aspirants and all students who want's improvement through real-time discussions. Designed to mirror SSB discussion & psychological scenarios, helping participants build confidence. ",
+    image:Jan28EventImg,
+    isNew: true,
   },
   {
     id: 2,
@@ -21,6 +26,7 @@ const eventsData = [
     description:
       "An intense platform for structured arguments and critical thinking.Debaters compete to persuade, rebut, and dominate the discourse.",
     image:UpcomingEventsImg,
+    isNew: false,
   },
   {
     id: 3,
@@ -30,6 +36,7 @@ const eventsData = [
     description:
       "A high-energy debate competition where logic meets conviction. Participants challenge ideas, defend viewpoints, and redefine perspectives.",
     image:UpcomingEventsImg,
+    isNew: false,
   },
 ];
 
@@ -54,6 +61,7 @@ function UpcomingEvents() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="
+            relative
             bg-[#1b1b38]/40 backdrop-blur-xl 
             border border-gray-600/20 
             rounded-3xl shadow-md 
@@ -64,6 +72,11 @@ function UpcomingEvents() {
             text-sm
           "
           >
+            {event.isNew && (
+              <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
+                NEW
+              </span>
+            )}
             {/* Upcoming event image here */}
             <img
               src={event.image}
@@ -82,7 +95,8 @@ function UpcomingEvents() {
               {expandedId === event.id && (
                 <div className="text-gray-300 text-sm mt-3 space-y-2">
                   <p className="leading-relaxed">{event.description}</p>
-                  <p>⏳ Last Date: {event.lastDate || "Not Provided"}</p>
+                  <p>⏳ Time: {event.time || "Not Provided"}</p>
+                   <p>⏳ Mode: {event.mode || "Not Provided"}</p>
                   <p>🏆 Prize: {event.prize || "To be announced"}</p>
                   {event.youtube && (
                     <a
