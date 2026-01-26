@@ -9,6 +9,7 @@ function PaymentGateway() {
 
   const passedAmount = location.state?.amount || "";
   const userData = location.state?.userData || null;
+  const eventLink = location.state?.eventLink || userData?.eventLink || null;
 
   const [amount, setAmount] = useState(passedAmount);  
   const [loading, setLoading] = useState(false);
@@ -63,6 +64,7 @@ function PaymentGateway() {
           event: {
             eventId: userData.eventId,
             eventName: userData.eventName,
+            eventLink,
           },
         },
         {

@@ -8,6 +8,7 @@ function RegisterEvent() {
   const eventAmount = location.state?.amount || null;
   const eventId = location.state?.eventId || null;
   const eventName = location.state?.eventName || null;
+  const eventLink = location.state?.eventLink || null;
 
   const initialFormState = {
     fullName: "",
@@ -70,6 +71,7 @@ function RegisterEvent() {
         heardFrom: formData.heardFrom,
         eventId,
         eventName,
+        eventLink,
       };
       if (eventAmount) {
         const token = localStorage.getItem("token");
@@ -88,6 +90,7 @@ function RegisterEvent() {
             userData: paymentUserData,
             eventId,
             eventName,
+            eventLink,
             couponCode,
           },
         });
@@ -106,6 +109,7 @@ function RegisterEvent() {
             ...formData,
             eventId,
             eventName,
+            eventLink,
             amount: 0,
             paymentStatus: "FREE",
           },
@@ -124,6 +128,7 @@ function RegisterEvent() {
             fullName: formData.fullName,
             phone: formData.phone,
             eventName,
+            eventLink,
             amount: 0,
             type: "FREE",
           },

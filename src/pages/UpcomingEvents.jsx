@@ -17,6 +17,7 @@ const eventsData = [
       "A online debate initiative that sharpens thinking, expression, and officer-like communication for CDS–SSB aspirants and all students who want's improvement through real-time discussions. Designed to mirror SSB discussion & psychological scenarios, helping participants build confidence. ",
     image:Jan28EventImg,
     isNew: true,
+    eventLink: "https://meet.google.com/txt-zgbk-kjp",
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ const eventsData = [
       "An intense platform for structured arguments and critical thinking.Debaters compete to persuade, rebut, and dominate the discourse.",
     image:UpcomingEventsImg,
     isNew: false,
+    eventLink:"",
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ const eventsData = [
       "A high-energy debate competition where logic meets conviction. Participants challenge ideas, defend viewpoints, and redefine perspectives.",
     image:UpcomingEventsImg,
     isNew: false,
+    eventLink: "",
   },
 ];
 
@@ -142,6 +145,7 @@ function UpcomingEvents() {
                         amount,
                         eventId: event.id,
                         eventName: event.title,
+                        eventLink: event.eventLink,
                       },
                     });
                   }}

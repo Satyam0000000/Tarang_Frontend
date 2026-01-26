@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import axios from "axios"; 
+import axios from "axios";
 import { motion } from "framer-motion";
 import { UserCircle } from "lucide-react";
 
@@ -161,6 +162,18 @@ function Profile() {
                   year: "numeric",
                 })}
               </p>
+              {event.eventLink && (
+                <p className="mt-2 text-sm">
+                  <a
+                    href={event.eventLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 underline hover:text-emerald-300"
+                  >
+                    🔗 Join Event (Google Meet – use same Email ID)
+                  </a>
+                </p>
+              )}
             </div>
           ))}
         </div>

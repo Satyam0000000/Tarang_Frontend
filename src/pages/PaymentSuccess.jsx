@@ -32,6 +32,17 @@ function PaymentSuccess() {
       doc.text(`Name: ${details.name}`, 20, 90);
       doc.text(`Email: ${details.email}`, 20, 100);
       doc.text(`Event: ${details.eventName}`, 20, 110);
+      if (details.eventLink) {
+        doc.text("Google Meet Link:", 20, 130);
+        doc.setTextColor(0, 0, 255);
+        doc.textWithLink(
+          `${details.eventLink} (Join with same Email ID)`,
+          20,
+          140,
+          { url: details.eventLink }
+        );
+        doc.setTextColor(0, 0, 0);
+      }
       doc.text(`Amount: ₹${details.amount}`, 20, 120);
     }
 
@@ -131,6 +142,19 @@ function PaymentSuccess() {
             <p><span className="font-semibold">Email:</span> {details.email}</p>
             <p><span className="font-semibold">Event:</span> {details.eventName}</p>
             <p><span className="font-semibold">Amount:</span> ₹{details.amount}</p>
+            {status === "PAID" && details.eventLink && (
+              <p>
+                <span className="font-semibold">Join Link:</span>{" "}
+                <a
+                  href={details.eventLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 underline"
+                >
+                  Google Meet (Join with same Email ID)
+                </a>
+              </p>
+            )}
           </div>
         )}
 
