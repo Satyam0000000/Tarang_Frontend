@@ -18,7 +18,7 @@ const eventsData = [
     image:Jan28EventImg,
     isNew: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
-    brochure: "/Jan_28_Brochure.pdf",
+    brochure: `${window.location.origin}/Jan_28_Brochure.pdf`,
   },
   {
     id: 2,
