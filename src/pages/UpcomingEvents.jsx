@@ -93,6 +93,10 @@ function UpcomingEvents() {
           );
 
           const isButtonLoading = loadingRegistrations;
+          let amount = null;
+          if (event.entryFee && event.entryFee !== "Free") {
+            amount = event.entryFee.replace("₹", "").trim();
+          }
           return (
           <motion.div
             key={event.id}
@@ -168,10 +172,6 @@ function UpcomingEvents() {
                     e.stopPropagation();
                     if (hasParticipated) return;
 
-                    let amount = null;
-                    if (event.entryFee && event.entryFee !== "Free") {
-                      amount = event.entryFee.replace("₹", "").trim();
-                    }
 
                     navigate("/registerevent", {
                       state: {
@@ -203,6 +203,7 @@ function UpcomingEvents() {
                       e.stopPropagation();
                       navigate("/registerevent", {
                         state: {
+                          amount,
                           eventId: event.id,
                           eventName: event.title,
                           eventLink: event.eventLink,
