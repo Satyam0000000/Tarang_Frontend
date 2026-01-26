@@ -15,45 +15,83 @@ function PaymentSuccess() {
     const doc = new jsPDF();
     const generatedAt = new Date().toLocaleString();
 
-    // 🔷 Branding
+    // 🔷 Header
     doc.setFontSize(22);
-    doc.text("Tarang Club", 20, 20);
+    doc.setFont("helvetica", "bold");
+    doc.text("TARANG CLUB", 105, 20, { align: "center" });
 
     doc.setFontSize(12);
-    doc.text("Event Registration Receipt", 20, 28);
-    doc.text(`Generated on: ${generatedAt}`, 20, 36);
+    doc.setFont("helvetica", "normal");
+    doc.text("Event Registration Receipt", 105, 28, { align: "center" });
+    doc.setFontSize(10);
+    doc.text(`Generated on: ${generatedAt}`, 105, 35, { align: "center" });
 
-    doc.setFontSize(12);
-    doc.text(`Order ID: ${orderId || "-"}`, 20, 50);
-    doc.text(`Payment ID: ${paymentId || "-"}`, 20, 60);
-    doc.text(`Status: ${status}`, 20, 70);
+    // 🔹 Divider
+    doc.line(20, 42, 190, 42);
 
+    let y = 52;
+
+    // 🔹 Payment Summary
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "bold");
+    doc.text("Payment Summary", 20, y);
+    y += 8;
+
+    doc.setFont("helvetica", "normal");
+    doc.text(`Order ID: ${orderId || "-"}`, 20, y); y += 7;
+    doc.text(`Payment ID: ${paymentId || "-"}`, 20, y); y += 7;
+    doc.text(`Status: ${status}`, 20, y); y += 10;
+
+    // 🔹 Participant Details
     if (details) {
-      doc.text(`Name: ${details.name}`, 20, 90);
-      doc.text(`Email: ${details.email}`, 20, 100);
-      doc.text(`Event: ${details.eventName}`, 20, 110);
+      doc.setFont("helvetica", "bold");
+      doc.text("Participant Details", 20, y);
+      y += 8;
+
+      doc.setFont("helvetica", "normal");
+      doc.text(`Name: ${details.name}`, 20, y); y += 7;
+      doc.text(`Email: ${details.email}`, 20, y); y += 7;
+      doc.text(`Event: ${details.eventName}`, 20, y); y += 10;
+
+      // 🔸 Amount Highlight
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14);
+      doc.text(`Amount Paid: ₹ ${details.amount}`, 20, y);
+      y += 12;
+
+      // 🔸 Join Link
       if (details.eventLink) {
-        doc.text("Google Meet Link:", 20, 130);
+        doc.setFontSize(11);
+        doc.setFont("helvetica", "bold");
+        doc.text("Google Meet Link:", 20, y);
+        y += 7;
+
         doc.setTextColor(0, 0, 255);
+        doc.setFont("helvetica", "normal");
         doc.textWithLink(
-          `${details.eventLink} (Join with same Email ID)`,
+          "Join Meeting (Use same Email ID)",
           20,
-          140,
+          y,
           { url: details.eventLink }
         );
         doc.setTextColor(0, 0, 0);
+        y += 10;
       }
-      doc.text(`Amount: ₹${details.amount}`, 20, 120);
     }
 
-    doc.setFontSize(10);
+    // 🔹 Footer
+    doc.line(20, y, 190, y);
+    y += 8;
+
+    doc.setFontSize(9);
     doc.text(
-      "Thank you for registering with Tarang Club. This receipt is system generated.",
-      20,
-      145
+      "This is a system-generated receipt. Please do not reply to this document.",
+      105,
+      y,
+      { align: "center" }
     );
 
-    doc.save(`payment_${orderId || "receipt"}.pdf`);
+    doc.save(`Tarang_Receipt_${orderId || "payment"}.pdf`);
   };
 
   useEffect(() => {
@@ -142,7 +180,7 @@ function PaymentSuccess() {
             <p><span className="font-semibold">Email:</span> {details.email}</p>
             <p><span className="font-semibold">Event:</span> {details.eventName}</p>
             <p><span className="font-semibold">Amount:</span> ₹{details.amount}</p>
-            {status === "PAID" && details.eventLink && (
+            {details.eventLink && (
               <p>
                 <span className="font-semibold">Join Link:</span>{" "}
                 <a
