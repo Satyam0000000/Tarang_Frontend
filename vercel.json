@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/Brochure/(.*)",
+      "destination": "/Brochure/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }
