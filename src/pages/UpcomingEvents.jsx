@@ -144,14 +144,20 @@ function UpcomingEvents() {
                    <p>⏳ Mode: {event.mode || "Not Provided"}</p>
                   <p>🏆 Prize: {event.prize || "To be announced"}</p>
                   {event.brochure && (
-                    <a
-                      href={event.brochure}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-emerald-400 underline block"
-                    >
-                      📄 View / Download Event Brochure
-                    </a>
+                    <button
+                      onClick={(e) => {
+                      e.stopPropagation();
+                      const link = document.createElement('a');
+                      link.href = event.brochure;
+                      link.download = 'Jan_28_Brochure.pdf';
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                  }}
+                  className="text-emerald-400 underline block text-left cursor-pointer bg-transparent border-none p-0 hover:text-emerald-300"
+                  >
+                  📄 Download Event Brochure
+                  </button>
                   )}
                   {event.youtube && (
                     <a
