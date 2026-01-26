@@ -46,6 +46,7 @@ const eventsData = [
 function UpcomingEvents() {
   const [expandedId, setExpandedId] = useState(null);
   const [registrations, setRegistrations] = useState([]);
+  const [loadingRegistrations, setLoadingRegistrations] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -54,6 +55,7 @@ function UpcomingEvents() {
     }
     const fetchRegistrations = async () => {
       try {
+        setLoadingRegistrations(true);
         const res = await fetch(
           "https://tarang-backend-alpha.vercel.app/api/my-registrations",
           {
@@ -66,8 +68,10 @@ function UpcomingEvents() {
         if (data.success) {
           setRegistrations(data.data || []);
         }
+        setLoadingRegistrations(false);
       } catch (err) {
         console.error("Failed to fetch registrations", err);
+        setLoadingRegistrations(false);
       }
     };
 
@@ -87,6 +91,8 @@ function UpcomingEvents() {
           const hasParticipated = registrations.some(
             (reg) => String(reg.eventId) === String(event.id)
           );
+
+          const isButtonLoading = loadingRegistrations;
           return (
           <motion.div
             key={event.id}
@@ -156,8 +162,8 @@ function UpcomingEvents() {
                 </button>
 
                 <motion.button
-                  whileTap={{ scale: hasParticipated ? 1 : 0.95 }}
-                  disabled={hasParticipated}
+                  whileTap={{ scale: hasParticipated || isButtonLoading ? 1 : 0.95 }}
+                  disabled={hasParticipated || isButtonLoading}
                   onClick={(e) => {
                     e.stopPropagation();
                     if (hasParticipated) return;
@@ -178,12 +184,18 @@ function UpcomingEvents() {
                     });
                   }}
                   className={`px-4 py-2 rounded-xl text-sm transition ${
-                    hasParticipated
+                    isButtonLoading
+                      ? "bg-gray-600 cursor-wait text-gray-300"
+                      : hasParticipated
                       ? "bg-gray-500 cursor-not-allowed text-gray-200"
                       : "bg-purple-600 hover:bg-purple-700 text-white"
                   }`}
                 >
-                  {hasParticipated ? "Participated" : "Participate"}
+                  {isButtonLoading
+                    ? "Checking..."
+                    : hasParticipated
+                    ? "Participated"
+                    : "Participate"}
                 </motion.button>
                 {hasParticipated && (
                   <button
