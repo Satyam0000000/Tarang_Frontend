@@ -146,12 +146,11 @@ function UpcomingEvents() {
                   {event.brochure && (
                     <a
                       href={event.brochure}
-                      download
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-emerald-400 underline block"
                     >
-                      📄 Download Event Brochure
+                      📄 View / Download Event Brochure
                     </a>
                   )}
                   {event.youtube && (
