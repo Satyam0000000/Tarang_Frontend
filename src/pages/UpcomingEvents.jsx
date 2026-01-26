@@ -18,6 +18,7 @@ const eventsData = [
     image:Jan28EventImg,
     isNew: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
+    brochure: "/Jan_28_Brochure.pdf",
   },
   {
     id: 2,
@@ -142,6 +143,17 @@ function UpcomingEvents() {
                   <p>⏳ Time: {event.time || "Not Provided"}</p>
                    <p>⏳ Mode: {event.mode || "Not Provided"}</p>
                   <p>🏆 Prize: {event.prize || "To be announced"}</p>
+                  {event.brochure && (
+                    <a
+                      href={event.brochure}
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 underline block"
+                    >
+                      📄 Download Event Brochure
+                    </a>
+                  )}
                   {event.youtube && (
                     <a
                       href={event.youtube}
