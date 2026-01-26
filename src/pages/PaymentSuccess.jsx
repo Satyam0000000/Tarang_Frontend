@@ -56,7 +56,11 @@ function PaymentSuccess() {
       // 🔸 Amount Highlight
       doc.setFont("helvetica", "bold");
       doc.setFontSize(14);
-      doc.text(`Amount Paid: ₹ ${details.amount}`, 20, y);
+
+      const formattedAmount = `₹${Number(details.amount).toFixed(2)}`;
+      doc.text("Amount Paid:", 20, y);
+      doc.text(formattedAmount, 120, y);
+
       y += 12;
 
       // 🔸 Join Link
