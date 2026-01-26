@@ -54,11 +54,14 @@ function UpcomingEvents() {
     }
     const fetchRegistrations = async () => {
       try {
-        const res = await fetch("/api/my-registrations", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await fetch(
+          "https://tarang-backend-alpha.vercel.app/api/my-registrations",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         const data = await res.json();
         if (data.success) {
           setRegistrations(data.data || []);
