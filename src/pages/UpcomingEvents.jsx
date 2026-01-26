@@ -11,7 +11,7 @@ const eventsData = [
     date: "28 Jan 2026",
     entryFee: "₹100",
     time: "10:00 PM onwards",
-    mode: "Online (Zoom)",
+    mode: "Online (Google Meet)",
     prize: "Domino's coupon",
     description:
       "A online debate initiative that sharpens thinking, expression, and officer-like communication for CDS–SSB aspirants and all students who want's improvement through real-time discussions. Designed to mirror SSB discussion & psychological scenarios, helping participants build confidence. ",

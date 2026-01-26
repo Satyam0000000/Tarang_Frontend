@@ -67,16 +67,7 @@ function RewardedFellow() {
 
         <ul className="space-y-3 text-gray-300 text-sm">
           <li className="border-b border-purple-500/20 pb-2">
-            • Satyam — Winner, Tarang Debate 2023
-          </li>
-          <li className="border-b border-purple-500/20 pb-2">
-            • Anand — Winner, Youth Poetry Fest 2023
-          </li>
-          <li className="border-b border-purple-500/20 pb-2">
-            • XYZ — Champion, Storytelling Evening 2022
-          </li>
-          <li className="border-b border-purple-500/20 pb-2">
-            • XYZ — Winner, Tarang Opening Debate 2022
+            • NAN
           </li>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import founderPic from "../assets/founder.jpg";
+import founderPic from "../assets/founder.png";
 import developerPic from "../assets/developer.png";
 
 function Collaboration() {
@@ -12,11 +12,25 @@ function Collaboration() {
           <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-purple-500/40">
             <img src={founderPic} alt="Founder" className="w-full h-full object-cover" />
           </div>
+          <p className="text-white font-bold text-base">
+            Anand
+          </p>
         </div>
-        <p className="text-gray-300 text-sm leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros eget nulla 
-          fermentum varius. Maecenas auctor, magna sit amet elementum posuere, risus arcu 
-          gravida nibh, sed vehicula lorem nulla sed elit. In hac habitasse platea dictumst.
+
+        <p className="text-gray-300 text-sm leading-relaxed space-y-3">
+          <span className="block">
+            I am Anand, a student from NIT Jalandhar and the founder of this initiative.
+          </span>
+
+          <span className="block">
+            I have a deep interest in reading, history, geopolitics, debating, and poetry,
+            and I have been actively performing poetry for the past 7 years.
+          </span>
+
+          <span className="block">
+            Building this platform is not just a project for me — it is a personal mission
+            to create meaningful opportunities for young people to learn, express, and lead.
+          </span>
         </p>
       </div>
 
