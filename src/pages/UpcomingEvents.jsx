@@ -45,12 +45,30 @@ const eventsData = [
 
 function UpcomingEvents() {
   const [expandedId, setExpandedId] = useState(null);
+  const [registrations, setRegistrations] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/register", { replace: true });
     }
+    const fetchRegistrations = async () => {
+      try {
+        const res = await fetch("/api/my-registrations", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await res.json();
+        if (data.success) {
+          setRegistrations(data.data || []);
+        }
+      } catch (err) {
+        console.error("Failed to fetch registrations", err);
+      }
+    };
+
+    fetchRegistrations();
   }, [navigate]);
   return (
     <div className="w-full py-16 px-4 sm:px-10 
@@ -62,7 +80,11 @@ function UpcomingEvents() {
       </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {eventsData.map((event) => (
+        {eventsData.map((event) => {
+          const hasParticipated = registrations.some(
+            (reg) => String(reg.eventId) === String(event.id)
+          );
+          return (
           <motion.div
             key={event.id}
             initial={{ opacity: 0, y: 30 }}
@@ -131,11 +153,13 @@ function UpcomingEvents() {
                 </button>
 
                 <motion.button
-                  whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: hasParticipated ? 1 : 0.95 }}
+                  disabled={hasParticipated}
                   onClick={(e) => {
                     e.stopPropagation();
-                    let amount = null;
+                    if (hasParticipated) return;
 
+                    let amount = null;
                     if (event.entryFee && event.entryFee !== "Free") {
                       amount = event.entryFee.replace("₹", "").trim();
                     }
@@ -146,17 +170,40 @@ function UpcomingEvents() {
                         eventId: event.id,
                         eventName: event.title,
                         eventLink: event.eventLink,
+                        registerForFriend: true,
                       },
                     });
                   }}
-                  className="bg-purple-600 text-white px-4 py-2 rounded-xl text-sm hover:bg-purple-700 transition"
+                  className={`px-4 py-2 rounded-xl text-sm transition ${
+                    hasParticipated
+                      ? "bg-gray-500 cursor-not-allowed text-gray-200"
+                      : "bg-purple-600 hover:bg-purple-700 text-white"
+                  }`}
                 >
-                  Participate
+                  {hasParticipated ? "Participated" : "Participate"}
                 </motion.button>
+                {hasParticipated && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate("/registerevent", {
+                        state: {
+                          eventId: event.id,
+                          eventName: event.title,
+                          eventLink: event.eventLink,
+                          registerForFriend: true,
+                        },
+                      });
+                    }}
+                    className="text-xs text-purple-300 underline mt-1"
+                  >
+                    Register for a friend
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>
-        ))}
+        )})}
       </div>
     </div>
   );

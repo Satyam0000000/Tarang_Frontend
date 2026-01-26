@@ -57,7 +57,9 @@ function PaymentSuccess() {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(14);
 
-      const formattedAmount = `₹${Number(details.amount).toFixed(2)}`;
+      doc.setCharSpace(0); // 🔧 Fix spaced-out digits issue
+
+      const formattedAmount = `INR ${Number(details.amount).toFixed(2)}`;
       doc.text("Amount Paid:", 20, y);
       doc.text(formattedAmount, 120, y);
 
@@ -214,10 +216,10 @@ function PaymentSuccess() {
             Explore More Events
           </a>
           <a
-            href="/"
+            href="/profile"
             className="rounded-lg border border-violet-500/40 px-6 py-2.5 text-sm font-medium text-violet-300 transition hover:bg-violet-500/10"
           >
-            Home
+            My Registrations
           </a>
         </div>
 
