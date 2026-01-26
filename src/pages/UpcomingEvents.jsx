@@ -133,8 +133,8 @@ function UpcomingEvents() {
                 {event.title}
               </h2>
 
-              <p className="text-gray-400 text-sm mb-1 leading-relaxed">📅 {event.date}</p>
-              <p className="text-gray-400 text-sm mb-3 leading-relaxed">💰 {event.entryFee}</p>
+              <p className="text-gray-400 text-sm mb-1 leading-relaxed"> {event.date}</p>
+              <p className="text-gray-400 text-sm mb-3 leading-relaxed"> {event.entryFee}</p>
 
               {expandedId === event.id && (
                 <div className="text-gray-300 text-sm mt-3 space-y-2">
@@ -187,7 +187,7 @@ function UpcomingEvents() {
                     isButtonLoading
                       ? "bg-gray-600 cursor-wait text-gray-300"
                       : hasParticipated
-                      ? "bg-gray-500 cursor-not-allowed text-gray-200"
+                      ? "bg-green-600 cursor-not-allowed text-white"
                       : "bg-purple-600 hover:bg-purple-700 text-white"
                   }`}
                 >
