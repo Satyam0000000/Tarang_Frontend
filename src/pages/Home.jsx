@@ -276,7 +276,7 @@ text-gray-200 tracking-wide text-center
               {/* NEW badge */}
               {event.isNew && (
                 <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                  NEW
+                  NEW 60% OFF
                 </span>
               )}
               {/* Upcoming event image here */}

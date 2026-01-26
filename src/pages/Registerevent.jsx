@@ -32,8 +32,8 @@ function RegisterEvent() {
 
   // 🎟️ Coupon configuration (editable anytime)
   const COUPONS = {
-    TARANG60: 60, // 60% off
-    TARANG30: 30, // 30% off
+    Jan26Special60: 60, // 60% off
+    FriendSpecial80: 80, // 30% off
   };
 
   const applyCoupon = () => {

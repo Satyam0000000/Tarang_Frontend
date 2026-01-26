@@ -9,7 +9,7 @@ const eventsData = [
     id: 1,
     title: "Social Media & 5th Generation Warfare",
     date: "28 Jan 2026",
-    entryFee: "₹1",
+    entryFee: "₹100",
     time: "10:00 PM onwards",
     mode: "Online (Zoom)",
     prize: "Domino's coupon",
@@ -114,7 +114,7 @@ function UpcomingEvents() {
           >
             {event.isNew && (
               <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                NEW
+                NEW 60% OFF
               </span>
             )}
             {/* Upcoming event image here */}
