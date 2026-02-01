@@ -3,22 +3,22 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import UpcomingEventsImg from "../assets/UpComingevent/UpcomingEvents.png";
-import Jan28EventImg from "../assets/Debate/28_Jan_Event.png"
+import Feb7EventImg from "../assets/Debate/Feb_7_event.png"
 const eventsData = [
   {
     id: 1,
     title: "Social Media & 5th Generation Warfare",
-    date: "28 Jan 2026",
+    date: "6-7 Feb 2026",
     entryFee: "₹100",
     time: "10:00 PM onwards",
     mode: "Online (Google Meet)",
-    prize: "Domino's coupon",
+    prize: "Domino's coupon and 2x Prize",
     description:
       "A online debate initiative that sharpens thinking, expression, and officer-like communication for CDS–SSB aspirants and all students who want's improvement through real-time discussions. Designed to mirror SSB discussion & psychological scenarios, helping participants build confidence. ",
-    image:Jan28EventImg,
+    image:Feb7EventImg,
     isNew: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
-    brochure: '/Brochure/Jan_28_Brochure.pdf',
+    brochure: '/Brochure/Feb_7_Brochure.pdf',
   },
   {
     id: 2,
