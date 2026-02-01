@@ -14,7 +14,7 @@ const eventsData = [
     mode: "Online (Google Meet)",
     prize: "Domino's coupon and 2x Prize",
     description:
-      "A online debate initiative that sharpens thinking, expression, and officer-like communication for CDS–SSB aspirants and all students who want's improvement through real-time discussions. Designed to mirror SSB discussion & psychological scenarios, helping participants build confidence. ",
+      "Join the Social Media & 5G Warfare Debate Bootcamp on Feb 6-7, 10 PM onwards, organised by NIT Jalandhar Virtual Debate Club (TARANG). This online event helps students develop clear thinking, confident expression, and sharp communication skills through real-time discussions on trending topics. Boost your personality and ace online interactions! ",
     image:Feb7EventImg,
     isNew: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
