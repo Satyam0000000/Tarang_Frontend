@@ -20,28 +20,6 @@ const eventsData = [
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
     brochure: '/Brochure/Feb_7_Brochure.pdf',
   },
-  {
-    id: 2,
-    title: "The Grand Argument",
-    date: "To be announced...",
-    entryFee: "Free",
-    description:
-      "An intense platform for structured arguments and critical thinking.Debaters compete to persuade, rebut, and dominate the discourse.",
-    image:UpcomingEventsImg,
-    isNew: false,
-    eventLink:"",
-  },
-  {
-    id: 3,
-    title: "Clash of Perspectives",
-    date: "To be announced...",
-    entryFee: "₹200",
-    description:
-      "A high-energy debate competition where logic meets conviction. Participants challenge ideas, defend viewpoints, and redefine perspectives.",
-    image:UpcomingEventsImg,
-    isNew: false,
-    eventLink: "",
-  },
 ];
 
 function UpcomingEvents() {
@@ -118,9 +96,14 @@ function UpcomingEvents() {
           "
           >
             {event.isNew && (
-              <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                NEW 60% OFF
-              </span>
+              <div className="absolute -top-3 -right-3 flex flex-col gap-1 z-10">
+                <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  NEW 60% OFF
+                </span>
+                <span className="bg-emerald-600 text-white text-[10px] font-semibold px-3 py-1 rounded-full shadow-lg">
+                  COUPON: JAN_OFFER_2026
+                </span>
+              </div>
             )}
             {/* Upcoming event image here */}
             <img
