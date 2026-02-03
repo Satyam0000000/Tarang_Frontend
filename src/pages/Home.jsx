@@ -67,7 +67,7 @@ const Home = () => {
   const events = [
     {
       title: "Debate Championship 2026",
-      date: "28 Jan 2026",
+      date: "6-7 feb 2026",
       tag: "Debate",
       image: debateImg,
       isNew: true,
