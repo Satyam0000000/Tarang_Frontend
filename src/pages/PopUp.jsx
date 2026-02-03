@@ -54,7 +54,7 @@ const PopUp = ({ open, onClose }) => {
 
             {/* Title */}
             <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Social Media & 5th Generation Warfare (28 Jan 2026)
+              Social Media & 5th Generation Warfare (6-7 feb 2026)
             </h2>
 
             {/* Description */}
