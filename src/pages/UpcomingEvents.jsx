@@ -95,6 +95,7 @@ function UpcomingEvents() {
             text-sm
           "
           >
+            {/* comment */}
             {event.isNew && (
               <div className="absolute -top-3 -right-3 flex flex-col gap-1 z-10">
                 <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
