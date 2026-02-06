@@ -17,6 +17,7 @@ const eventsData = [
       "Join the Social Media & 5G Warfare Debate Bootcamp on Feb 6-7, 10 PM onwards, organised by NIT Jalandhar Virtual Debate Club (TARANG). This online event helps students develop clear thinking, confident expression, and sharp communication skills through real-time discussions on trending topics. Boost your personality and ace online interactions! ",
     image:Feb7EventImg,
     isNew: true,
+    eventOpen: false,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
     brochure: '/Brochure/Feb_7_Brochure.pdf',
   },
@@ -72,6 +73,7 @@ function UpcomingEvents() {
           );
 
           const isButtonLoading = loadingRegistrations;
+          const isEventClosed = event.eventOpen === false;
           let amount = null;
           if (event.entryFee && event.entryFee !== "Free") {
             amount = event.entryFee.replace("₹", "").trim();
@@ -155,6 +157,12 @@ function UpcomingEvents() {
                 </div>
               )}
 
+              {isEventClosed && (
+                <p className="text-red-400 text-xs mt-3">
+                  ⛔ Registrations for this event are closed.
+                </p>
+              )}
+
               <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center mt-5">
                 <button
                   onClick={(e) => {
@@ -167,8 +175,8 @@ function UpcomingEvents() {
                 </button>
 
                 <motion.button
-                  whileTap={{ scale: hasParticipated || isButtonLoading ? 1 : 0.95 }}
-                  disabled={hasParticipated || isButtonLoading}
+                  whileTap={{ scale: hasParticipated || isButtonLoading || isEventClosed ? 1 : 0.95 }}
+                  disabled={hasParticipated || isButtonLoading || isEventClosed}
                   onClick={(e) => {
                     e.stopPropagation();
                     if (hasParticipated) return;
@@ -187,6 +195,8 @@ function UpcomingEvents() {
                   className={`px-4 py-2 rounded-xl text-sm transition ${
                     isButtonLoading
                       ? "bg-gray-600 cursor-wait text-gray-300"
+                      : isEventClosed
+                      ? "bg-red-600 cursor-not-allowed text-white"
                       : hasParticipated
                       ? "bg-green-600 cursor-not-allowed text-white"
                       : "bg-purple-600 hover:bg-purple-700 text-white"
@@ -194,11 +204,13 @@ function UpcomingEvents() {
                 >
                   {isButtonLoading
                     ? "Checking..."
+                    : isEventClosed
+                    ? "Registration Closed"
                     : hasParticipated
                     ? "Participated"
                     : "Participate"}
                 </motion.button>
-                {hasParticipated && (
+                {hasParticipated && !isEventClosed && (
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
