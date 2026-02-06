@@ -159,7 +159,7 @@ function UpcomingEvents() {
 
               {isEventClosed && (
                 <p className="text-red-400 text-xs mt-3">
-                  ⛔ Registrations for this event are closed.
+                  Registrations for this event are closed.
                 </p>
               )}
 
