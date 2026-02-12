@@ -32,7 +32,7 @@ const Contact = () => {
           border border-purple-500/10 shadow-md"
         >
           <h2 className="text-xl font-semibold mb-6 text-gray-200">
-            Contact Information
+            Founder Contact 
           </h2>
 
           <div className="space-y-5 text-gray-300 text-sm sm:text-base">

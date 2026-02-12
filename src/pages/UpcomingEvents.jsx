@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import UpcomingEventsImg from "../assets/UpComingevent/UpcomingEvents.png";
+import Feb_15_Event from "../assets/Debate/Feb_15_Event.png"
 import Feb7EventImg from "../assets/Debate/Feb_7_event.png"
 const eventsData = [
     {
@@ -15,7 +16,7 @@ const eventsData = [
     prize: "Domino's coupon and 2x Prize",
     description:
       "This debate explores one of the most profound questions of human thought. Participants will present arguments based on faith, science, logic, and personal belief, encouraging critical thinking and respectful discussion of diverse perspectives.",
-    image:UpcomingEventsImg,
+    image:Feb_15_Event,
     isNew: true,
     eventOpen: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
