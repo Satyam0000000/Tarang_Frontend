@@ -35,7 +35,7 @@ function RegisterEvent() {
   const COUPONS = {
     TARANG_OFFER_2026: 60, // 60% off
     FRIENDS80: 80,
-    TEST9758:100, // 100% off
+    TEST9758:99, // 100% off
   };
 
   const applyCoupon = () => {

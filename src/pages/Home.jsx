@@ -1,5 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
+const isTokenExpired = (token) => {
+  if (!token) return true;
+
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return Date.now() > payload.exp * 1000;
+  } catch (err) {
+    return true;
+  }
+};
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Theater, Rocket, Mic, Trophy } from "lucide-react";
@@ -14,6 +24,15 @@ import Feb7EventImg from "../assets/Debate/Feb_7_event.png"
 
 const Home = () => {
   const navigate = useNavigate();
+  const handleLogout = (reason) => {
+    localStorage.clear();
+
+    if (reason === "expired") {
+      alert("Session expired. Please login again.");
+    }
+
+    navigate("/login", { replace: true });
+  };
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = !!localStorage.getItem("token");
 
@@ -30,6 +49,16 @@ const Home = () => {
 
     return () => clearTimeout(timer);
   }, [isLoggedIn]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) return;
+
+    if (isTokenExpired(token)) {
+      handleLogout("expired");
+    }
+  }, []);
 
   const handleParticipate = () => {
     if (isLoggedIn) navigate("/UpcomingEvents");
