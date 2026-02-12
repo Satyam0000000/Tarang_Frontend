@@ -59,11 +59,9 @@ const PopUp = ({ open, onClose }) => {
 
             {/* Description */}
             <p className="text-gray-300 text-smsm:text-base leading-relaxed mb-6">
-              Join the Social Media & 5G Warfare Debate Bootcamp on Feb 6-7, 
-              10 PM onwards, organised by NIT Jalandhar Virtual Debate Club (TARANG). 
-              This online event helps students develop clear thinking, confident 
-              expression, and sharp communication skills through real-time discussions
-              on trending topics. Boost your personality and ace online interactions!
+              This debate explores one of the most profound questions of human thought.
+              Participants will present arguments based on faith, science, logic, and personal 
+              belief, encouraging critical thinking and respectful discussion of diverse perspectives.
             </p>
 
             {/* CTA */}

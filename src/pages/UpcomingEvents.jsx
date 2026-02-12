@@ -5,23 +5,7 @@ import { useNavigate } from "react-router-dom";
 import UpcomingEventsImg from "../assets/UpComingevent/UpcomingEvents.png";
 import Feb7EventImg from "../assets/Debate/Feb_7_event.png"
 const eventsData = [
-  {
-    id: 1,
-    title: "Social Media & 5th Generation Warfare",
-    date: "6-7 Feb 2026",
-    entryFee: "₹100",
-    time: "10:00 PM onwards",
-    mode: "Online (Google Meet)",
-    prize: "Domino's coupon and 2x Prize",
-    description:
-      "Join the Social Media & 5G Warfare Debate Bootcamp on Feb 6-7, 10 PM onwards, organised by NIT Jalandhar Virtual Debate Club (TARANG). This online event helps students develop clear thinking, confident expression, and sharp communication skills through real-time discussions on trending topics. Boost your personality and ace online interactions! ",
-    image:Feb7EventImg,
-    isNew: true,
-    eventOpen: false,
-    eventLink: "https://meet.google.com/txt-zgbk-kjp",
-    brochure: '/Brochure/Feb_7_Brochure.pdf',
-  },
-  {
+    {
     id: 2,
     title: "Does God Exist's ??",
     date: "15 Feb 2026",
@@ -36,7 +20,25 @@ const eventsData = [
     eventOpen: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
     brochure: '/Brochure/Feb_7_Brochure.pdf',
+    whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
   },
+  {
+    id: 1,
+    title: "Social Media & 5th Generation Warfare",
+    date: "6-7 Feb 2026",
+    entryFee: "₹100",
+    time: "10:00 PM onwards",
+    mode: "Online (Google Meet)",
+    prize: "Domino's coupon and 2x Prize",
+    description:
+      "Join the Social Media & 5G Warfare Debate Bootcamp on Feb 6-7, 10 PM onwards, organised by NIT Jalandhar Virtual Debate Club (TARANG). This online event helps students develop clear thinking, confident expression, and sharp communication skills through real-time discussions on trending topics. Boost your personality and ace online interactions! ",
+    image:Feb7EventImg,
+    isNew: false,
+    eventOpen: false,
+    eventLink: "https://meet.google.com/txt-zgbk-kjp",
+    brochure: '/Brochure/Feb_7_Brochure.pdf',
+  },
+
 ];
 
 function UpcomingEvents() {
@@ -167,7 +169,17 @@ function UpcomingEvents() {
                       target="_blank"
                       className="text-purple-300 underline block"
                     >
-                      ▶ Watch Promo Video
+                       Watch Promo Video
+                    </a>
+                  )}
+                  {event.whatsappLink && (
+                    <a
+                      href={event.whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-400 underline block hover:text-green-300"
+                    >
+                       Join WhatsApp Group
                     </a>
                   )}
                 </div>
