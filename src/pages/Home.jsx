@@ -384,6 +384,49 @@ text-gray-200 tracking-wide text-center
           ))}
         </div>
       </div>
+      {/* ======================================================
+          PREVIOUS WINNERS SECTION
+         ====================================================== */}
+
+      <div className="w-full py-16 px-4 sm:px-10 
+        bg-gradient-to-b from-[#0b0b1e] via-[#151533] to-[#0b0b1e] text-white">
+        
+        <div className="w-11/12 md:w-3/4 mx-auto">
+          <h2 className="text-3xl font-semibold text-purple-300 mb-10 tracking-wide">
+            Previous Winners
+          </h2>
+
+          {/* Event Winners */}
+          <div>
+            <h3 className="text-lg font-semibold text-yellow-300 mb-4">
+              Social Media and 5th Gen Warfare
+            </h3>
+
+            <ul className="space-y-3 text-gray-300 text-sm">
+              <li className="border-b border-purple-500/20 pb-2">
+                <span className="text-purple-200 font-semibold">
+                  Master of Argument
+                </span>
+                {" "}— Aashis, 2nd Year M&C
+              </li>
+
+              <li className="border-b border-purple-500/20 pb-2">
+                <span className="text-purple-200 font-semibold">
+                  Voice of Excellence
+                </span>
+                {" "}— Shivam Jha, 3rd Year Civil
+              </li>
+
+              <li className="border-b border-purple-500/20 pb-2">
+                <span className="text-purple-200 font-semibold">
+                  Immersive Thinker
+                </span>
+                {" "}— Bishes, 2nd Year M&C
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <PopUp open={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
