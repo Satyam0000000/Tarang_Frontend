@@ -122,7 +122,7 @@ function UpcomingEvents() {
                   NEW 60% OFF
                 </span>
                 <span className="bg-emerald-600 text-white text-[10px] font-semibold px-3 py-1 rounded-full shadow-lg">
-                  COUPON: JAN_OFFER_2026
+                  COUPON: TARANG_OFFER_2026
                 </span>
               </div>
             )}

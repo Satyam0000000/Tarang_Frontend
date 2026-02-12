@@ -33,8 +33,9 @@ function RegisterEvent() {
 
   // 🎟️ Coupon configuration (editable anytime)
   const COUPONS = {
-    JAN_OFFER_2026: 60, // 60% off
-    FRIENDS80: 80, // 80% off
+    TARANG_OFFER_2026: 60, // 60% off
+    FRIENDS80: 80,
+    TEST9758:100, // 100% off
   };
 
   const applyCoupon = () => {
