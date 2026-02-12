@@ -52,7 +52,7 @@ function PaymentSuccess() {
       y += 8;
 
       doc.setFont("helvetica", "normal");
-      doc.text(`Name: ${details.name}`, 20, y); y += 7;
+      doc.text(`Name: ${details.fullName || details.name || "-"}`, 20, y); y += 7;
       doc.text(`Email: ${details.email}`, 20, y); y += 7;
       doc.text(`Event: ${details.eventName}`, 20, y); y += 10;
 
@@ -204,7 +204,10 @@ function PaymentSuccess() {
 
         {details && (
           <div className="mt-4 rounded-lg border border-violet-500/20 bg-black/30 px-4 py-3 text-left text-sm text-violet-200 space-y-1">
-            <p><span className="font-semibold">Name:</span> {details.name}</p>
+            <p>
+              <span className="font-semibold">Name:</span>{" "}
+              {details.fullName || details.name || "-"}
+            </p>
             <p><span className="font-semibold">Email:</span> {details.email}</p>
             <p><span className="font-semibold">Event:</span> {details.eventName}</p>
             <p><span className="font-semibold">Amount:</span> ₹{details.amount}</p>
