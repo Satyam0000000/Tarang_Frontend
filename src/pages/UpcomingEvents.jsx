@@ -21,6 +21,22 @@ const eventsData = [
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
     brochure: '/Brochure/Feb_7_Brochure.pdf',
   },
+  {
+    id: 2,
+    title: "Does God Exist's ??",
+    date: "15 Feb 2026",
+    entryFee: "₹100",
+    time: "10:00 PM onwards",
+    mode: "Online (Google Meet)",
+    prize: "Domino's coupon and 2x Prize",
+    description:
+      "This debate explores one of the most profound questions of human thought. Participants will present arguments based on faith, science, logic, and personal belief, encouraging critical thinking and respectful discussion of diverse perspectives.",
+    image:UpcomingEventsImg,
+    isNew: true,
+    eventOpen: true,
+    eventLink: "https://meet.google.com/txt-zgbk-kjp",
+    brochure: '/Brochure/Feb_7_Brochure.pdf',
+  },
 ];
 
 function UpcomingEvents() {

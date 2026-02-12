@@ -61,15 +61,33 @@ function RewardedFellow() {
 
       {/* Previous Winners Section */}
       <div className="w-11/12 md:w-3/4 mt-16">
-        <h2 className="text-2xl font-semibold text-purple-300 mb-6">
+        <h2 className="text-2xl font-semibold text-purple-300 mb-8">
           Previous Winners
         </h2>
 
-        <ul className="space-y-3 text-gray-300 text-sm">
-          <li className="border-b border-purple-500/20 pb-2">
-            • NAN
-          </li>
-        </ul>
+        {/* Event */}
+        <div>
+          <h3 className="text-lg font-semibold text-yellow-300 mb-4">
+            Social Media and 5th Gen Warfare
+          </h3>
+
+          <ul className="space-y-3 text-gray-300 text-sm">
+            <li className="border-b border-purple-500/20 pb-2">
+              <span className="text-purple-200 font-semibold">Master of Argument</span>  
+              — Aashis , 2nd Year M&C
+            </li>
+
+            <li className="border-b border-purple-500/20 pb-2">
+               <span className="text-purple-200 font-semibold">Voice of Excellence</span>  
+              — Shivam Jha, 3rd Year Civil
+            </li>
+
+            <li className="border-b border-purple-500/20 pb-2">
+               <span className="text-purple-200 font-semibold">Immersive Thinker</span>  
+              — Bishes, 2nd Year M&C
+            </li>
+          </ul>
+        </div>
       </div>
 
     </div>

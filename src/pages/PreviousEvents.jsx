@@ -2,17 +2,23 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import NoEventsImg from "../assets/UpComingevent/NoEvents.png";
+import Feb7EventImg from "../assets/Debate/Feb_7_event.png"
 
 const pastEvents = [
   {
     id: 1,
-    title: "Previous Debate Event",
-    heldOn: "No events yet",
-    winners: "N/A",
-    prize: "N/A",
-    youtube: "",
-    description: "No events yet.",
-    image: NoEventsImg,
+    title: "Social Media & 5th Generation Warfare",
+    date: "6-7 Feb 2026",
+    entryFee: "₹100",
+    time: "10:00 PM onwards",
+    mode: "Online (Google Meet)",
+    prize: "Domino's coupon and 2x Prize",
+    description:
+      "Join the Social Media & 5G Warfare Debate Bootcamp on Feb 6-7, 10 PM onwards, organised by NIT Jalandhar Virtual Debate Club (TARANG). This online event helps students develop clear thinking, confident expression, and sharp communication skills through real-time discussions on trending topics. Boost your personality and ace online interactions! ",
+    image:Feb7EventImg,
+    isNew: false,
+    eventOpen: false,
+    brochure: '/Brochure/Feb_7_Brochure.pdf',
   },
   {
     id: 2,
