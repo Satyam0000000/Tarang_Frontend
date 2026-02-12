@@ -59,6 +59,7 @@ function PaymentGateway() {
             degree: userData.degree,
             year: userData.year,
             heardFrom: userData.heardFrom,
+            wantToSpeak: userData.wantToSpeak, 
           },
 
           event: {
