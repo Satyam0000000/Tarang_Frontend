@@ -17,6 +17,7 @@ function RegisterEvent() {
     degree: "",
     year: "",
     heardFrom: "",
+    wantToSpeak: "",
     customerId: "",
   };
   const [loading, setLoading] = useState(false);
@@ -69,6 +70,7 @@ function RegisterEvent() {
         degree: formData.degree,
         year: formData.year,
         heardFrom: formData.heardFrom,
+        wantToSpeak: formData.wantToSpeak,
         eventId,
         eventName,
         eventLink,
@@ -235,6 +237,19 @@ function RegisterEvent() {
           <option value="Friend">Friend</option>
           <option value="Social Media">Social Media</option>
           <option value="Website">Website</option>
+        </select>
+
+        <label className="block mb-3 text-gray-300">Want to speak</label>
+        <select
+          name="wantToSpeak"
+          required
+          value={formData.wantToSpeak}
+          onChange={handleChange}
+          className="w-full mb-6 px-4 py-2 rounded-lg bg-[#27274a]/40 border border-gray-600/30 text-white outline-none"
+        >
+          <option value="">Select Option</option>
+          <option value="Favour of Motion">Favour of Motion</option>
+          <option value="Against the Motion">Against the Motion</option>
         </select>
 
         {eventAmount && (

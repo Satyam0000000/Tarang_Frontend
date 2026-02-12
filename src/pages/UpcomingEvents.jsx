@@ -7,7 +7,7 @@ import Feb7EventImg from "../assets/Debate/Feb_7_event.png"
 const eventsData = [
     {
     id: 2,
-    title: "Does God Exist's ??",
+    title: "Does God Exist ??",
     date: "15 Feb 2026",
     entryFee: "₹100",
     time: "10:00 PM onwards",
@@ -19,7 +19,7 @@ const eventsData = [
     isNew: true,
     eventOpen: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
-    brochure: '/Brochure/Feb_7_Brochure.pdf',
+    brochure: '/Brochure/Feb_15_Event.pdf',
     whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
   },
   {
