@@ -3,6 +3,9 @@ import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import jsPDF from "jspdf";
 
+const WHATSAPP_GROUP_LINK =
+  "https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t";
+
 function PaymentSuccess() {
   const [params] = useSearchParams();
   const orderId = params.get("order_id");
@@ -79,6 +82,25 @@ function PaymentSuccess() {
           20,
           y,
           { url: details.eventLink }
+        );
+        doc.setTextColor(0, 0, 0);
+        y += 10;
+      }
+
+      // 🔸 WhatsApp Group Link
+      if (WHATSAPP_GROUP_LINK) {
+        doc.setFontSize(11);
+        doc.setFont("helvetica", "bold");
+        doc.text("WhatsApp Group Link:", 20, y);
+        y += 7;
+
+        doc.setTextColor(0, 128, 0);
+        doc.setFont("helvetica", "normal");
+        doc.textWithLink(
+          "Join WhatsApp Group",
+          20,
+          y,
+          { url: WHATSAPP_GROUP_LINK }
         );
         doc.setTextColor(0, 0, 0);
         y += 10;
@@ -199,6 +221,17 @@ function PaymentSuccess() {
                 </a>
               </p>
             )}
+            <p>
+              <span className="font-semibold">WhatsApp Group:</span>{" "}
+              <a
+                href={WHATSAPP_GROUP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-400 underline"
+              >
+                Join WhatsApp Group
+              </a>
+            </p>
           </div>
         )}
 
