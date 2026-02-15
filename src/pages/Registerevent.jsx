@@ -285,7 +285,7 @@ function RegisterEvent() {
               </div>
             </div>
             <label className="block mb-3 text-gray-300">Coupon Code</label>
-            <div className="flex gap-2 mb-4">
+            <div className="flex flex-col sm:flex-row gap-2 mb-4">
               <input
                 type="text"
                 value={couponCode}
@@ -296,7 +296,8 @@ function RegisterEvent() {
               <button
                 type="button"
                 onClick={applyCoupon}
-                className="px-4 py-2 rounded-lg font-semibold bg-purple-600 hover:bg-purple-700 transition"
+                className="w-full sm:w-auto px-4 py-2 rounded-lg font-semibold 
+                           bg-purple-600 hover:bg-purple-700 transition"
               >
                 Apply
               </button>
