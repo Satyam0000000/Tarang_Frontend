@@ -255,6 +255,15 @@ function RegisterEvent() {
 
         {eventAmount && (
           <>
+            <p
+              className="mb-2 text-sm text-purple-300 cursor-pointer hover:text-purple-200 underline"
+              onClick={() => {
+                setCouponCode("TARANG_OFFER_2026");
+                setDiscountedAmount(eventAmount);
+              }}
+            >
+               60% OFF coupon code: <span className="font-semibold">TARANG_OFFER_2026</span> (click to apply)
+            </p>
             <label className="block mb-3 text-gray-300">Coupon Code</label>
             <div className="flex gap-2 mb-4">
               <input
