@@ -255,15 +255,34 @@ function RegisterEvent() {
 
         {eventAmount && (
           <>
-            <p
-              className="mb-2 text-sm text-purple-300 cursor-pointer hover:text-purple-200 underline"
+            <div
               onClick={() => {
                 setCouponCode("TARANG_OFFER_2026");
                 setDiscountedAmount(eventAmount);
               }}
+              className="mb-4 p-4 rounded-xl border border-purple-500/40 
+                         bg-gradient-to-r from-purple-600/20 to-blue-600/20
+                         hover:from-purple-600/30 hover:to-blue-600/30
+                         cursor-pointer transition-all group"
             >
-               60% OFF coupon code: <span className="font-semibold">TARANG_OFFER_2026</span> (click to apply)
-            </p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-purple-200 font-medium">
+                     Special Offer
+                  </p>
+                  <p className="text-lg font-semibold text-white">
+                    Get <span className="text-green-400">60% OFF</span> on registration
+                  </p>
+                  <p className="text-xs text-gray-300 mt-1">
+                    Use code <span className="font-mono bg-black/30 px-2 py-0.5 rounded">TARANG_OFFER_2026</span>
+                  </p>
+                </div>
+
+                <div className="text-sm font-semibold text-purple-300 group-hover:text-purple-200">
+                  Click to Apply →
+                </div>
+              </div>
+            </div>
             <label className="block mb-3 text-gray-300">Coupon Code</label>
             <div className="flex gap-2 mb-4">
               <input
