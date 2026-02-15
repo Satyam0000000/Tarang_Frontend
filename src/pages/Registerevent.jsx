@@ -260,26 +260,27 @@ function RegisterEvent() {
                 setCouponCode("TARANG_OFFER_2026");
                 setDiscountedAmount(eventAmount);
               }}
-              className="mb-4 p-4 rounded-xl border border-purple-500/40 
+              className="mb-4 p-4 rounded-xl border border-purple-500/40
                          bg-gradient-to-r from-purple-600/20 to-blue-600/20
                          hover:from-purple-600/30 hover:to-blue-600/30
-                         cursor-pointer transition-all group"
+                         cursor-pointer transition-all"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-sm text-purple-200 font-medium">
+                  <p className="text-base sm:text-lg text-purple-200 font-medium">
                      Special Offer
                   </p>
-                  <p className="text-lg font-semibold text-white">
+                  <p className="text-base sm:text-lg font-semibold text-white">
                     Get <span className="text-green-400">60% OFF</span> on registration
                   </p>
-                  <p className="text-xs text-gray-300 mt-1">
+                  <p className="text-[11px] sm:text-xs text-gray-300 mt-1">
                     Use code <span className="font-mono bg-black/30 px-2 py-0.5 rounded">TARANG_OFFER_2026</span>
                   </p>
                 </div>
-
-                <div className="text-sm font-semibold text-purple-300 group-hover:text-purple-200">
-                  Click to Apply →
+                <div className="self-start sm:self-auto px-3 py-1 rounded-full
+                                bg-purple-500/20 text-xs sm:text-sm
+                                font-semibold text-purple-200">
+                  Tap to Apply
                 </div>
               </div>
             </div>
