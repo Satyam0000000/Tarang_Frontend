@@ -17,8 +17,8 @@ const eventsData = [
     description:
       "This debate explores one of the most profound questions of human thought. Participants will present arguments based on faith, science, logic, and personal belief, encouraging critical thinking and respectful discussion of diverse perspectives.",
     image:Feb_15_Event,
-    isNew: true,
-    eventOpen: true,
+    isNew: false,
+    eventOpen: false,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
     brochure: '/Brochure/Feb_15_Event.pdf',
     whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
