@@ -5,8 +5,44 @@ import { useNavigate } from "react-router-dom";
 import UpcomingEventsImg from "../assets/UpComingevent/UpcomingEvents.png";
 import Feb_15_Event from "../assets/Debate/Feb_15_Event.png"
 import Feb7EventImg from "../assets/Debate/Feb_7_event.png"
+import Feb_21_Img from "../assets/Debate/Feb_21_Event.png"
+import Feb_22_Img from "../assets/Debate/Feb_22_Event.png"
 const eventsData = [
-    {
+  {
+    id: 3,
+    title: "Open Mic",
+    date: "21 Feb 2026",
+    entryFee: "₹100",
+    time: "11:30 AM - 12:30 PM",
+    mode: "Offline (Venue will be shared later)",
+    prize: "Domino's coupon and 2x Prize",
+    description:
+      "Open Mic is a event for creative expression where poetry, shayari, and stand-up comedy take center stage. Perform, express yourself, and connect with an audience that celebrates original voices and ideas.",
+    image:Feb_21_Img,
+    isNew: true,
+    eventOpen: true,
+    eventLink: "NAN",
+    brochure: '',
+    whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
+  },
+  {
+    id: 4,
+    title: "Misuse of Gender Power",
+    date: "22 Feb 2026",
+    entryFee: "₹100",
+    time: "10 PM",
+    mode: "Google Meet",
+    prize: "Domino's coupon and 2x Prize",
+    description:
+      "Misuse of Gender Power is a debate that examines how gender-based power dynamics can be exploited or misunderstood in society. Participants present arguments from multiple perspectives, promoting critical analysis, fairness, and respectful discussion on a complex issue.",
+    image:Feb_22_Img,
+    isNew: true,
+    eventOpen: true,
+    eventLink: "https://meet.google.com/txt-zgbk-kjp",
+    brochure: '',
+    whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
+  },
+  {
     id: 2,
     title: "Does God Exist ??",
     date: "15 Feb 2026",
