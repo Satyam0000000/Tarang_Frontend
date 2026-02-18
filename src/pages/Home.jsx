@@ -97,7 +97,7 @@ const Home = () => {
   const events = [
     {
       title: "Debate 2026",
-      date: "15 feb 2026",
+      date: "21 feb 2026",
       tag: "Debate",
       image: debateImg,
       isNew: true,
@@ -111,10 +111,10 @@ const Home = () => {
     },
     {
       title: "Poetry Slam – Rhythm of Words 2026",
-      date: "Coming Soon...",
+      date: "22 feb 2026",
       tag: "Poetry",
       image: PoetryImg,
-      isNew: false,
+      isNew: true,
     },
     {
       title: "Storytelling Night – Echoes of Youth 2026",

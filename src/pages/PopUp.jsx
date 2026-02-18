@@ -54,14 +54,16 @@ const PopUp = ({ open, onClose }) => {
 
             {/* Title chalo bhai */}
             <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Does God Exist 15 feb 2026
+              2 New Events Open Mic and Gender Misuse
             </h2>
 
             {/* Description */}
             <p className="text-gray-300 text-smsm:text-base leading-relaxed mb-6">
-              This debate explores one of the most profound questions of human thought.
-              Participants will present arguments based on faith, science, logic, and personal 
-              belief, encouraging critical thinking and respectful discussion of diverse perspectives.
+             Two exciting events are coming your way! Experience the creativity of Open Mic with 
+             poetry, shayari, and stand-up comedy, alongside a thought-provoking debate on the
+             Misuse of Gender Power. One stage—expression, ideas, and impactful conversations you 
+             don’t want to miss.
+
             </p>
 
             {/* CTA */}
