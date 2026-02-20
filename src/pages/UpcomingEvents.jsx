@@ -167,8 +167,8 @@ function UpcomingEvents() {
             <img
               src={event.image}
               alt={event.title}
-              className="h-28 sm:h-40 w-full object-cover rounded-t-3xl"
-             />
+              className="w-full aspect-[16/9] object-contain bg-black rounded-t-3xl"
+            />
 
             <div className="p-5 sm:p-6">
               <h2 className="text-xl font-semibold text-gray-200 mb-2">
