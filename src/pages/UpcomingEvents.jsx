@@ -9,23 +9,6 @@ import Feb_21_Img from "../assets/Debate/Feb_21_Event.png"
 import Feb_22_Img from "../assets/Debate/Feb_22_Event.png"
 const eventsData = [
   {
-    id: 3,
-    title: "Open Mic",
-    date: "21 Feb 2026",
-    entryFee: "₹100",
-    time: "11:30 AM - 12:30 PM",
-    mode: "Offline (Venue will be shared later)",
-    prize: "Domino's coupon and 2x Prize",
-    description:
-      "Open Mic is a event for creative expression where poetry, shayari, and stand-up comedy take center stage. Perform, express yourself, and connect with an audience that celebrates original voices and ideas.",
-    image:Feb_21_Img,
-    isNew: true,
-    eventOpen: true,
-    eventLink: "NAN",
-    brochure: '',
-    whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
-  },
-  {
     id: 4,
     title: "Misuse of Gender Power",
     date: "22 Feb 2026",
@@ -39,6 +22,23 @@ const eventsData = [
     isNew: true,
     eventOpen: true,
     eventLink: "https://meet.google.com/txt-zgbk-kjp",
+    brochure: '',
+    whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
+  },
+   {
+    id: 3,
+    title: "Open Mic",
+    date: "21 Feb 2026",
+    entryFee: "₹100",
+    time: "11:30 AM - 12:30 PM",
+    mode: "Offline (Venue will be shared later)",
+    prize: "Domino's coupon and 2x Prize",
+    description:
+      "Open Mic is a event for creative expression where poetry, shayari, and stand-up comedy take center stage. Perform, express yourself, and connect with an audience that celebrates original voices and ideas.",
+    image:Feb_21_Img,
+    isNew: false,
+    eventOpen: false,
+    eventLink: "NAN",
     brochure: '',
     whatsappLink:"https://chat.whatsapp.com/I0f5XOYwcmi8zgkw8K3WIy?mode=gi_t",
   },
